@@ -27,6 +27,7 @@ class ProductController extends Controller
         //return $req->input();
         $pro = new Product;
         $pro->productid;
+        $pro->categoryid=$req->input('category');
         $pro->productname=$req->input('pname');
         $pro->productdesc=$req->input('pdesc');
         $pro->productprice=$req->input('pprice');

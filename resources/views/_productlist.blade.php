@@ -5,7 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
- @include('layouts.partials._head');
+ @include('layouts.partials._head')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -47,8 +47,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr style="text-align:center">
-                    <th>PRODUCT ID</th>
+                    <th>PRODUCT ID<i class="fa fa-sort"></i></th>
                     <th>PRODUCT NAME</th>
+                    <th>CATEGORY</th>
                     <th>DESCRIPTION</th>
                     <th>PRICE</th>
                     <th>IMAGE</th>
@@ -62,6 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr style="text-align:center">
                   <td>{{$item->productid}}</td>
                   <td>{{$item->productname}}</td>
+                  <td>{{$item->categoryid}}</td>
                   <td>{{$item->productdesc}}</td>
                   <td>{{$item->productprice}}</td>
                   <td><img src="./productimg/{{$item->productimg}}" style="width: 150px;"></td>
