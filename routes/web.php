@@ -29,7 +29,8 @@ Route::post('/add_products','ProductController@addproduct');
 Route::view('/add_products','_addproducts');
 
 Route::get('/product_list','ProductController@listproduct');
-//Route::view('/product_list','_productlist');
+Route::get('/delete_product/{product_id}','ProductController@deleteproduct');
+
 
 
 

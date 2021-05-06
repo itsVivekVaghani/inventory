@@ -41,12 +41,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                   </div>
 
+                  <!-- <div class="form-group row">
+                        <label class="col-sm col-form-label">Category</label>
+                  <div class="col-sm-10">
+                        <select class="form-control">
+                          <option>--Select One--</option>
+                          <option>KURTI</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                 </div>
+                 </div> -->
+
                   <div class="form-group row">
-                    <label for="inputproduct" class="col-sm col-form-label">Product Qty</label>
-                    <div class="col-sm-10">
-                      <input type="number"required autocomplete="off" class="form-control" name="pqty" placeholder="Product Quantity">
-                    </div>
+                  <label for="inputproduct" class="col-sm col-form-label">Product Details</label>
+                     <div class="col-sm-10">
+                    <textarea class="form-control"required autocomplete="off" name="pdesc" id="address " rows="3" placeholder="Product Description" tabindex="3"></textarea>
                   </div>
+                </div>
 
                   <div class="form-group row">
                     <label for="inputproduct" class="col-sm col-form-label">Product Price</label>

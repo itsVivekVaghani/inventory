@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr style="text-align:center">
                     <th>PRODUCT ID</th>
                     <th>PRODUCT NAME</th>
-                    <th>QTY</th>
+                    <th>DESCRIPTION</th>
                     <th>PRICE</th>
                     <th>ACTION</th>
                     <!-- <--<th>Engine version</th>
@@ -55,13 +55,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr  style="text-align:center">
                   <td>{{$item->product_id}}</td>
                   <td>{{$item->product_name}}</td>
-                  <td>{{$item->product_qty}}</td>
+                  <td>{{$item->product_desc}}</td>
                   <td>{{$item->product_price}}</td>
-                  <td>
-                  
-                  <button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-bell"></i>EDIT</button>
-                  <button type="button" class="btn btn-outline-danger btn-block btn-sm"><i class="fa fa-book"></i>DELETE</button>
-									
+                  <td> 
+                    <a><button class="btn bg-warning btn-xs"><i class="fas fa-edit"></i></button></a>
+                    <a href="delete_product/{{$item->product_id}}" class="btn bg-danger btn-xs"><i class="fa fa-trash"></i></a>
                   </td>
                   </tr>
                   @endforeach
