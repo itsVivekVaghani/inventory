@@ -24,14 +24,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Header (Page header) -->
     @yield('content')
     <section class="content">
-    
+    <div></div>
     <div class="card">
               <div class="card-header">
-                <h3 class="card-title col-sm-3 col-form-label text">List Of Products</h3>
-                <span class="btn btn-success row fileinput-button dz-clickable float-right">
-                 <i class="fas fa-plus"></i>
-                <span>Add New Product</span>
-                      </span>
+                <h3 class="card-title col-m-3"><i class="fas fa-clipboard-list fa-2x"></i> List Of Products</h3>
+                
+                <a href="add_products"><span class="btn btn-success row fileinput-button dz-clickable float-right">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Product</span>
+                </span></a>
               </div>
               
               @if(Session::get('status'))
