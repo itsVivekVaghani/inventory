@@ -41,8 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr style="text-align:center">
-                    <th>SUPPLIER ID</th>
-                    <th>SUPPLIER NAME</th>
+                    <th>CUSTOMER ID</th>
+                    <th>CUSTOMER NAME</th>
+                    <th>CUSTOMER EMAIL</th>
                     <th>MOBILE NO.</th>
                     <th>ADDRESS</th>
                     <th>BALANCE</th>
@@ -54,11 +55,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tbody>
                   @foreach($data as $item)
                   <tr  style="text-align:center">
-                  <td>{{$item->supplier_id}}</td>
-                  <td>{{$item->supplier_name}}</td>
-                  <td>{{$item->supplier_mob}}</td>
-                  <td>{{$item->supplier_add}}</td>
-                  <td>{{$item->supplier_bal}}</td>
+                  <td>{{$item->customer_id}}</td>
+                  <td>{{$item->customer_name}}</td>
+                  <td>{{$item->customer_email}}</td>
+                  <td>{{$item->customer_mob}}</td>
+                  <td>{{$item->customer_add}}</td>
+                  <td>{{$item->customer_bal}}</td>
                   <td>
                   
                   <button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-bell"></i>EDIT</button>

@@ -170,6 +170,30 @@
               </li>
             </ul>
           </li>
+          <!--Customer-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fas fa-users"></i>
+              <p>
+                Customer
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="new_customer" class="nav-link">
+                <i class="fas fa-user-plus"></i>
+                  <p>New Customer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="customer_list" class="nav-link">
+                <i class="fas fa-list-alt"></i>
+                  <p>Manage Customer</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

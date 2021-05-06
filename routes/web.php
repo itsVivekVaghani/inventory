@@ -21,7 +21,7 @@ Route::view('/temp','layouts.master');
 Route::view('/register','login.register');
 Route::view('/login','login.login');
 
-Route::post('/store',"Users@stholore");
+Route::post('/store',"Users@store");
 Route::post('/logs',"Users@logs");
 
 //product opertaion
@@ -38,5 +38,11 @@ Route::post('/new_supplier','SuplierController@addsupplier');
 Route::view('/new_supplier','_newsupplier');
 
 Route::get('/supplier_list','SuplierController@listsupplier');
+
+//Customers  operation
+Route::view('/new_customer','_newcustomer');
+Route::post('/new_customer','Newcustomers@addcustomer');
+
+Route::get('/customer_list','Newcustomers@listcustomer');
 
 

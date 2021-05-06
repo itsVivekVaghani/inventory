@@ -13,12 +13,18 @@
 <div class="form">
       
       <ul class="tab-group">
-        <li class="tab active"><a href="register">Sign Up</a></li>
+        <li class="tab"><a href="register">Sign Up</a></li>
         <li class="tab"><a href="login">Log In</a></li>
       </ul>
       
       <div class="tab-content">
-        <div id="login">   
+        <div id="login">  
+        @if(Session::get('status'))
+              <div class="alert alert-sucess alert-dismissible fade show" role="alert">
+                <h1>Your Are Register Successfull</h1>
+                </button>
+                </div>
+              @endif 
         <h1>Welcome Back!</h1>
           
           <form action="logs" method="POST">
