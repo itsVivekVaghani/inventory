@@ -6,7 +6,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 <head>
  @include('layouts.partials._head')
- 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -27,15 +28,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title col-sm-3 col-form-label text">List Of Products</h3>
+                <span class="btn btn-success row fileinput-button dz-clickable float-right">
+                 <i class="fas fa-plus"></i>
+                <span>Add New Product</span>
+                      </span>
               </div>
+              
               @if(Session::get('status'))
               <div class="alert alert-sucess alert-dismissible fade show" role="alert">
-                <strong>Product Added Sucessfully</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                <span aria-hidden="true">&times;</span>
+                <strong>{{Session::get('status')}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
                 </button>
-                </div>
-              @endif
+              </div>
+             @endif
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -53,13 +59,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tbody>
                   @foreach($data as $item)
                   <tr  style="text-align:center">
-                  <td>{{$item->product_id}}</td>
-                  <td>{{$item->product_name}}</td>
-                  <td>{{$item->product_desc}}</td>
-                  <td>{{$item->product_price}}</td>
+                  <td>{{$item->productid}}</td>
+                  <td>{{$item->productname}}</td>
+                  <td>{{$item->productdesc}}</td>
+                  <td>{{$item->productprice}}</td>
                   <td> 
-                    <a><button class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></button></a>
-                    <a href="delete_product/{{$item->product_id}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
+                    <a href="edit_product/{{$item->productid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>
+                    <a href="delete_product/{{$item->productid}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
                   </td>
                   </tr>
                   @endforeach
