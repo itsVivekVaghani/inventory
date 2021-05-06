@@ -58,8 +58,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <td>{{$item->product_desc}}</td>
                   <td>{{$item->product_price}}</td>
                   <td> 
-                    <a><button class="btn bg-warning btn-xs"><i class="fas fa-edit"></i></button></a>
-                    <a href="delete_product/{{$item->product_id}}" class="btn bg-danger btn-xs"><i class="fa fa-trash"></i></a>
+                    <a><button class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></button></a>
+                    <a href="delete_product/{{$item->product_id}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
                   </td>
                   </tr>
                   @endforeach

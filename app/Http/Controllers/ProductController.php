@@ -30,6 +30,7 @@ class ProductController extends Controller
 
     function deleteproduct($product_id)
     {
+        
         DB::delete('delete from products where product_id = ?',[$product_id]);
         // $pro = new Product;
         // $pro->product_name=$req->input('pname');
