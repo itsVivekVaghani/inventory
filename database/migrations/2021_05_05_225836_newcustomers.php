@@ -14,12 +14,12 @@ class Newcustomers extends Migration
     public function up()
     {
         Schema::create('newcustomers', function (Blueprint $table) {
-            $table->bigIncrements('customer_id');
-            $table->string('customer_name');
-            $table->integer('customer_mob');
-            $table->string('customer_add');
-            $table->integer('customer_bal');
-            $table->string('customer_email');
+            $table->bigIncrements('customerid');
+            $table->string('customername');
+            $table->string('customermob');
+            $table->string('customeradd');
+            $table->integer('customerbal');
+            $table->string('customeremail');
             $table->timestamps();
         });
     }

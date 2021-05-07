@@ -28,7 +28,7 @@ class ProductController extends Controller
         return redirect('product_list');
     }
 
-    function deleteproduct($productid)
+    function deleteproduct($productid,Request $req)
     {    
         //with query
         //DB::delete('delete from products where productid = ?',[$productid]);

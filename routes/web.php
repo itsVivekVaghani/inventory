@@ -46,5 +46,8 @@ Route::view('/new_customer','_newcustomer');
 Route::post('/new_customer','Newcustomers@addcustomer');
 
 Route::get('/customer_list','Newcustomers@listcustomer');
+Route::get('/delete_customer/{customerid}','Newcustomers@deletecustomer');
+Route::get('/edit_customer/{customerid}','Newcustomers@editcustomer');
+Route::post('/edit_customer','Newcustomers@updatecustomer');
 
 
