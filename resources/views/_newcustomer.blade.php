@@ -36,22 +36,27 @@ scratch. This aapage gets rid of all links and provides the needed markup only.
                 <div class="form-group row">
                   <label for="customer_name" class="col-sm-3 col-form-label text-right">Customer Name</label>
                   <div class="col-sm-6">
-                    <input class="form-control" name="cname"  type="text" placeholder="Customer Name" required="" tabindex="1" onkeyup="special_character_remove(this.value, 'customer_name')">
+                    <input class="form-control" name="cname"  type="text" placeholder="Customer Name" required="" tabindex="1">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <label for="customer_email" class="col-sm-3 col-form-label text-right">Customer E-Mail</label>
                   <div class="col-sm-6">
-                    <input class="form-control" name="cemail"  type="text" placeholder="Customer Name" required="" tabindex="1" onkeyup="special_character_remove(this.value, 'customer_email')">
+                    <input class="form-control" name="cemail"  type="email" placeholder="Customer Name" required="" tabindex="1">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <label for="mobile" class="col-sm-3 col-form-label text-right">Customer Mobile</label>
                   <div class="col-sm-6">
-                    <input class="form-control" name="cmobile" id="mobile" type="text" placeholder="Customer Mobile" required="" min="0" tabindex="2" onkeyup="onlynumber_allow(this.value,'mobile')">
+                   
+                   <input class="form-control" name="cmobile" id="mobile" type="text" placeholder="Customer Mobile" required="" min="0" tabindex="2">
+                   @error('cmobile')
+                 <div>{{$message}}</div>
+                   @enderror
                   </div>
+                  
                  </div>
 
                 <div class="form-group row">

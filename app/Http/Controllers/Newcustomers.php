@@ -16,6 +16,10 @@ class Newcustomers extends Controller
 
     function addcustomer(Request $req){
 
+        $req->validate([
+            "cmobile"=>"min:10 | max:10",
+        ]);
+
         $sup = new Newcustomer;
         $sup->customer_name=$req->input('cname');
         $sup->customer_email=$req->input('cemail');
