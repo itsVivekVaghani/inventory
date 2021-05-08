@@ -41,18 +41,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                   </div>
 
-                  <!-- <div class="form-group row">
+                  <div class="form-group row">
                         <label class="col-sm col-form-label">Category</label>
                   <div class="col-sm-10">
-                        <select class="form-control">
-                          <option>--Select One--</option>
-                          <option>KURTI</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
+                  <select name="category" class="form-control">
+            <option>--Select One--</option>
+            @foreach($category as $key => $value)
+            <option value="{{$key}}">{{$value}}</option>
+            @endforeach
+         </select>
                  </div>
-                 </div> -->
+                 </div>
 
                   <div class="form-group row">
                   <label for="inputproduct" class="col-sm col-form-label">Product Details</label>

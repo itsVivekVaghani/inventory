@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller
 {
     //
+    function getcategory()
+    {
+        $category=DB::table('category')->pluck("categoryname","categoryid");
+        return view('_addproducts',compact('category'));
+    }
+    
     function listproduct()
     {
         $data=Product::all();
