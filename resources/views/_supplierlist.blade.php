@@ -27,15 +27,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title col-sm-3 col-form-label text">Supplier List</h3>
+                <a href="new_supplier"><span class="btn btn-success row fileinput-button dz-clickable float-right">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Supplier</span>
+                </span></a>
               </div>
               @if(Session::get('status'))
               <div class="alert alert-sucess alert-dismissible fade show" role="alert">
-                <strong>Product Added Sucessfully</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                <span aria-hidden="true">&times;</span>
+                <strong>{{Session::get('status')}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
                 </button>
-                </div>
-              @endif
+              </div>
+             @endif
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -54,15 +58,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tbody>
                   @foreach($data as $item)
                   <tr  style="text-align:center">
-                  <td>{{$item->supplier_id}}</td>
-                  <td>{{$item->supplier_name}}</td>
-                  <td>{{$item->supplier_mob}}</td>
-                  <td>{{$item->supplier_add}}</td>
-                  <td>{{$item->supplier_bal}}</td>
+                  <td>{{$item->supplierid}}</td>
+                  <td>{{$item->suppliername}}</td>
+                  <td>{{$item->supplieremail}}</td>
+                  <td>{{$item->suppliermob}}</td>
+                  <td>{{$item->supplieradd}}</td>
+                  <td>{{$item->supplierbal}}</td>
                   <td>
                   
-                  <button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-bell"></i>EDIT</button>
-                  <button type="button" class="btn btn-outline-danger btn-block btn-sm"><i class="fa fa-book"></i>DELETE</button>
+                  <a href="edit_supplier/{{$item->supplierid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>
+                  <a href="delete_supplier/{{$item->supplierid}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
 									
                   </td>
                   </tr>

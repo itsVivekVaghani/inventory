@@ -20,12 +20,45 @@ class SuplierController extends Controller
     {
         //return $req->input();
         $sup = new Supplier;
-        $sup->supplier_name=$req->input('sname');
-        $sup->supplier_mob=$req->input('smobile');
-        $sup->supplier_add=$req->input('saddress');
-        $sup->supplier_bal=$req->input('sbalance');
+        $sup->suppliername=$req->input('sname');
+        $sup->supplieremail=$req->input('semail');
+        $sup->suppliermob=$req->input('smobile');
+        $sup->supplieradd=$req->input('saddress');
+        $sup->supplierbal=$req->input('sbalance');
         $sup->save();
         $req->session()->flash('status','Supplier Added Sucessfully');
         return redirect('supplier_list');
+    }
+
+    function deletesupplier($supplierid,Request $req)
+    {    
+        //with query
+        //DB::delete('delete from products where productid = ?',[$productid]);
+
+        //direct method
+        Supplier::find($supplierid)->delete();
+        $req->session()->flash('status','Supplier Deleted Sucessfully');
+        return redirect('supplier_list');
+    }
+
+    function editsupplier($id)
+    {
+         $data=Supplier::find($id);
+         return view('_editsupplier',["data"=>$data]);
+    }
+
+    function updatesupplier(Request $req)
+    {
+        $sup = Supplier::find($req->input('sid'));
+        $sup->supplierid;
+        $sup->suppliername=$req->input('sname');
+        $sup->supplieremail=$req->input('semail');
+        $sup->suppliermob=$req->input('smobile');
+        $sup->supplieradd=$req->input('saddress');
+        $sup->supplierbal=$req->input('sbalance');
+        $sup->save();
+        $req->session()->flash('status','Supplier Updated Sucessfully');
+        return redirect('supplier_list');
+
     }
 }

@@ -14,11 +14,12 @@ class Suppliers extends Migration
     public function up()
     {
         Schema::create('suppliers', function (Blueprint $table) {
-            $table->bigIncrements('supplier_id');
-            $table->string('supplier_name');
-            $table->integer('supplier_mob');
-            $table->string('supplier_add');
-            $table->integer('supplier_bal');
+            $table->bigIncrements('supplierid');
+            $table->string('suppliername');
+            $table->string('supplieremail');
+            $table->string('suppliermob');
+            $table->string('supplieradd');
+            $table->integer('supplierbal');
             $table->timestamps();
         });
     }

@@ -38,6 +38,9 @@ Route::post('/new_supplier','SuplierController@addsupplier');
 Route::view('/new_supplier','_newsupplier');
 
 Route::get('/supplier_list','SuplierController@listsupplier');
+Route::get('/delete_supplier/{supplierid}','SuplierController@deletesupplier');
+Route::get('/edit_supplier/{supplierid}','SuplierController@editsupplier');
+Route::post('/edit_supplier','SuplierController@updatesupplier');
 
 //Customers  operation
 Route::view('/new_customer','_newcustomer');
