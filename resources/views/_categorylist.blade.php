@@ -6,6 +6,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 <head>
  @include('layouts.partials._head')
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -22,29 +24,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Header (Page header) -->
     @yield('content')
     <section class="content">
-    
+    <div></div>
     <div class="card">
               <div class="card-header">
-                <h3 class="card-title col-sm-3 col-form-label text">List Of Products</h3>
+                <h3 class="card-title col-m-3"><i class="fas fa-clipboard-list fa-2x"></i> Manage Category</h3>
+                
+                <a href="add_products"><span class="btn btn-success row fileinput-button dz-clickable float-right">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Category</span>
+                </span></a>
               </div>
+              
+              @if(Session::get('status'))
+              <div class="alert alert-sucess alert-dismissible fade show" role="alert">
+                <strong>{{Session::get('status')}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+             @endif
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
-                  <tr>
-                    <th>PRODUCT ID</th>
-                    <th>PRODUCT NAME</th>
-                    <th>PRICE</th>
-                    <!-- <--<th>Engine version</th>
-                    <th>CSS grade</th> -->
+                  <tr style="text-align:center">
+                    <th>CATEGORY ID</th>
+                    <th>CATEGORY NAME</th>
+                    <th>ACTION</th>
                   </tr>
                   </thead>
                   <tbody>
                   @foreach($data as $item)
-                  <tr>
-                  <td>{{$item->product_id}}</td>
-                  <td>{{$item->product_name}}</td>
-                  <td>{{$item->product_price}}</td>
+                  <tr  style="text-align:center">
+                  <td>{{$item->categoryid}}</td>
+                  <td>{{$item->categoryname}}</td>
+                  <td> 
+                    <a href="edit_product/{{$item->productid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>
+                    <a href="delete_product/{{$item->productid}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
+                  </td>
                   </tr>
                   @endforeach
                   </tbody>
@@ -90,7 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,

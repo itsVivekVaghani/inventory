@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
  Route::get('/', function () {
      return view('login.login');
 });
@@ -26,7 +24,7 @@ Route::post('/logs',"Users@logs");
 
 //product opertaion
 Route::post('/add_products','ProductController@addproduct');
-Route::view('/add_products','_addproducts');
+Route::get('/add_products','ProductController@getcategory');
 
 Route::get('/product_list','ProductController@listproduct');
 Route::get('/delete_product/{productid}','ProductController@deleteproduct');
@@ -50,4 +48,9 @@ Route::get('/delete_customer/{customerid}','Newcustomers@deletecustomer');
 Route::get('/edit_customer/{customerid}','Newcustomers@editcustomer');
 Route::post('/edit_customer','Newcustomers@updatecustomer');
 
+
+//Category Operation
+Route::view('/new_category','_newcategory');
+Route::post('/new_category','NewcustomersCategoryController@addcategory');
+Route::get('/category_list','CategoryController@listcategory');
 
