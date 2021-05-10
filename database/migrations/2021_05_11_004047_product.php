@@ -23,6 +23,7 @@ class Product extends Migration
             $table->string('productname');
             $table->string('productdesc');
             $table->integer('productprice');
+            $table->string('productimg');
             $table->timestamps();
         });
     }

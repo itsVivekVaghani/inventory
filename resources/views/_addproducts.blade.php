@@ -31,7 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- form start -->
               <div class="col-sm-10">
               
-              <form class="form-horizontal" method="post" action="add_products">
+              <form class="form-horizontal" method="post" action="add_products" enctype="multipart/form-data">
               @csrf
                 <div class="card-body">
                   <div class="form-group row">
@@ -45,11 +45,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <label class="col-sm col-form-label">Category</label>
                   <div class="col-sm-10">
                   <select name="category" class="form-control">
+<<<<<<< Updated upstream
                   <option>--Select One--</option>
                   @foreach($category as $key => $value)
                   <option value="{{$key}}">{{$value}}</option>
                   @endforeach
          </select>
+=======
+                      <option>--Select One--</option>
+                      @foreach($category as $key => $value)
+                      <option value="{{$key}}">{{$value}}</option>
+                      @endforeach
+                   </select>
+>>>>>>> Stashed changes
                  </div>
                  </div>
 
@@ -72,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-sm-10">
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <input type="file" class="custom-file-input" name="image">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
                     </div>

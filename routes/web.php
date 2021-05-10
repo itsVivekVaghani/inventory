@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
      return view('login.login');
 });
 
-Route::view('/temp','layouts.master');
+Route::view('/dashboard','layouts.master');
 
 Route::view('/register','login.register');
 Route::view('/login','login.login');

@@ -43,6 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </button>
               </div>
              @endif
+
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -52,6 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <th>PRODUCT NAME</th>
                     <th>DESCRIPTION</th>
                     <th>PRICE</th>
+                    <th>IMAGE</th>
                     <th>ACTION</th>
                     <!-- <--<th>Engine version</th>
                     <th>CSS grade</th> -->
@@ -59,11 +61,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </thead>
                   <tbody>
                   @foreach($data as $item)
-                  <tr  style="text-align:center">
+                  <tr style="text-align:center">
                   <td>{{$item->productid}}</td>
                   <td>{{$item->productname}}</td>
                   <td>{{$item->productdesc}}</td>
                   <td>{{$item->productprice}}</td>
+                  <td><img src="./productimg/{{$item->productimg}}" class="img-fluid.max" alt="Responsive image"></td>
                   <td> 
                     <a href="edit_product/{{$item->productid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>
                     <a href="delete_product/{{$item->productid}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>

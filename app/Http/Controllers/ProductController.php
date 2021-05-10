@@ -30,6 +30,13 @@ class ProductController extends Controller
         $pro->productname=$req->input('pname');
         $pro->productdesc=$req->input('pdesc');
         $pro->productprice=$req->input('pprice');
+        
+        if($files=$req->file('image'))
+        {
+            $name=$files->getClientOriginalName();
+            $files->move('productimg',$name);
+            $pro->productimg=$name;
+        }
         $pro->save();
         $req->session()->flash('status','Product Added Sucessfully');
         return redirect('product_list');
@@ -41,7 +48,11 @@ class ProductController extends Controller
         //DB::delete('delete from products where productid = ?',[$productid]);
 
         //direct method
+        $data=Product::find($productid);
+        $img_path=$data->productimg;
+        unlink($img_path);
         Product::find($productid)->delete();
+        
         $req->session()->flash('status','Product Deleted Sucessfully');
         return redirect('product_list');
     }
