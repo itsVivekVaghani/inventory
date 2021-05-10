@@ -16,10 +16,12 @@ class Product extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->bigIncrements('productid');
             //$table->integer('product_id');
-            $table->integer('categoryid')->unsigned();
-            $table->foreign('categoryid')
-                ->references('categoryid')->on('category')
-                ->onDelete('cascade');
+            //$table->integer('categoryid')->unsigned();
+            //$table->foreign('categoryid')
+                //->references('categoryid')->on('category')
+                //->onDelete('cascade');
+            $table->integer('categoryid');
+            $table->foreign('categoryid')->references('categoryid')->on('category');
             $table->string('productname');
             $table->string('productdesc');
             $table->integer('productprice');

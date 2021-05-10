@@ -45,19 +45,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <label class="col-sm col-form-label">Category</label>
                   <div class="col-sm-10">
                   <select name="category" class="form-control">
-<<<<<<< Updated upstream
-                  <option>--Select One--</option>
-                  @foreach($category as $key => $value)
-                  <option value="{{$key}}">{{$value}}</option>
-                  @endforeach
-         </select>
-=======
                       <option>--Select One--</option>
                       @foreach($category as $key => $value)
                       <option value="{{$key}}">{{$value}}</option>
                       @endforeach
                    </select>
->>>>>>> Stashed changes
                  </div>
                  </div>
 
