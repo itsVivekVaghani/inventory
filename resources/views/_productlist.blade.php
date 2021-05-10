@@ -5,9 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
- @include('layouts.partials._head')
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+ @include('layouts.partials._head');
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -66,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <td>{{$item->productname}}</td>
                   <td>{{$item->productdesc}}</td>
                   <td>{{$item->productprice}}</td>
-                  <td><img src="./productimg/{{$item->productimg}}" class="img-fluid.max" alt="Responsive image"></td>
+                  <td><img src="./productimg/{{$item->productimg}}" style="width: 150px;"></td>
                   <td> 
                     <a href="edit_product/{{$item->productid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>
                     <a href="delete_product/{{$item->productid}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
