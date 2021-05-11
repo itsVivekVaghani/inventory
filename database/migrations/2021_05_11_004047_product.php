@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Products extends Migration
+class Product extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class Products extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->bigIncrements('productid');
             //$table->integer('product_id');
+            $table->integer('categoryid')->unsigned();
+            $table->foreign('categoryid')
+                ->references('categoryid')->on('category')
+                ->onDelete('cascade');
             $table->string('productname');
             $table->string('productdesc');
             $table->integer('productprice');
             $table->timestamps();
         });
-        
-        DB::update("ALTER TABLE products AUTO_INCREMENT=1000;");
     }
 
     /**
@@ -32,6 +34,6 @@ class Products extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('product');
     }
 }
