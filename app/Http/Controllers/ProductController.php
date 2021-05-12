@@ -48,12 +48,13 @@ class ProductController extends Controller
         //with query
         //DB::delete('delete from products where productid = ?',[$productid]);
 
-        //direct method
+        //image delete
         $data=Product::find($productid);
         $img_path=$data->productimg;
-        unlink($img_path);
+        unlink("productimg/".$img_path);
+
+        //direct method
         Product::find($productid)->delete();
-        
         $req->session()->flash('status','Product Deleted Sucessfully');
         return redirect('product_list');
     }

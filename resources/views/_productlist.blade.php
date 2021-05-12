@@ -47,11 +47,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr style="text-align:center">
-                    <th>PRODUCT ID<i class="fa fa-sort"></i></th>
-                    <th>PRODUCT NAME</th>
-                    <th>CATEGORY</th>
+                    <th>PRODUCT ID <i class="fa fa-sort"></i></th>
+                    <th>PRODUCT NAME <i class="fa fa-sort"></i></th>
                     <th>DESCRIPTION</th>
-                    <th>PRICE</th>
+                    <th>PRICE <i class="fa fa-sort"></i></th>
                     <th>IMAGE</th>
                     <th>ACTION</th>
                     <!-- <--<th>Engine version</th>
@@ -63,7 +62,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr style="text-align:center">
                   <td>{{$item->productid}}</td>
                   <td>{{$item->productname}}</td>
-                  <td>{{$item->categoryid}}</td>
                   <td>{{$item->productdesc}}</td>
                   <td>{{$item->productprice}}</td>
                   <td><img src="./productimg/{{$item->productimg}}" style="width: 150px;"></td>

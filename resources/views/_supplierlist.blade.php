@@ -47,6 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr style="text-align:center">
                     <th>SUPPLIER ID</th>
                     <th>SUPPLIER NAME</th>
+                    <th>EMAIL</th>
                     <th>MOBILE NO.</th>
                     <th>ADDRESS</th>
                     <th>BALANCE</th>

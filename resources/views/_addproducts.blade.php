@@ -29,11 +29,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <div class="col-sm-10">
+              
+              <div class="col-sm-12">
+              
               
               <form class="form-horizontal" method="post" action="add_products" enctype="multipart/form-data">
               @csrf
                 <div class="card-body">
+
                   <div class="form-group row">
                     <label for="inputproduct" class="col-sm col-form-label">Product Name</label>
                     <div class="col-sm-10">

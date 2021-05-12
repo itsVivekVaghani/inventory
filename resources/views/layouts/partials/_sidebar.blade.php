@@ -71,7 +71,7 @@
             </a>
           </li> -->
           <li class="nav-item">
-            <a href="temp" class="nav-link">
+            <a href="dashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -101,6 +101,31 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fas fa-code-branch"></i>
+              <p>
+                Category
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="add_category" class="nav-link">
+                <i class="fas fa-plus-square"></i>
+                  <p>Add Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="category_list" class="nav-link">
+                <i class="fas fa-th-list"></i>
+                  <p>Category List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fas fa-balance-scale"></i>
@@ -134,7 +159,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="new_purchase" class="nav-link">
                 <i class="fas fa-cart-plus"></i>
                   <p>Add Purchase</p>
                 </a>
@@ -149,7 +174,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="fas fa-users"></i>
+            <i class="fas fa-truck"></i>
               <p>
                 Supplier
                 <i class="right fas fa-angle-left"></i>
@@ -158,7 +183,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="new_supplier" class="nav-link">
-                <i class="fa fa-truck"></i>
+                <i class="fas fa-user-plus"></i>
                   <p>New Supplier</p>
                 </a>
               </li>

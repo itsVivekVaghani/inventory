@@ -29,7 +29,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-header">
                 <h3 class="card-title col-m-3"><i class="fas fa-clipboard-list fa-2x"></i> Manage Category</h3>
                 
-                <a href="add_products"><span class="btn btn-success row fileinput-button dz-clickable float-right">
+                <a href="add_category"><span class="btn btn-success row fileinput-button dz-clickable float-right">
                         <i class="fas fa-plus"></i>
                         <span>Add New Category</span>
                 </span></a>
@@ -48,8 +48,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr style="text-align:center">
-                    <th>CATEGORY ID</th>
-                    <th>CATEGORY NAME</th>
+                    <th>CATEGORY ID <i class="fa fa-sort"></i></th>
+                    <th>CATEGORY NAME <i class="fa fa-sort"></i></th>
                     <th>ACTION</th>
                   </tr>
                   </thead>

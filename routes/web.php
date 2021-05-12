@@ -53,7 +53,12 @@ Route::post('/edit_customer','Newcustomers@updatecustomer');
 
 
 //Category Operation
-Route::view('/new_category','_newcategory');
-Route::post('/new_category','NewcustomersCategoryController@addcategory');
+Route::view('/add_category','_addcategory');
+Route::post('/add_category','CategoryController@addcategory');
 Route::get('/category_list','CategoryController@listcategory');
+
+
+//purchase
+Route::view('/new_purchase','_newpurchase');
+
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Product extends Migration
+class Products extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class Product extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
-            $table->bigIncrements('productid');
+        Schema::create('products', function (Blueprint $table) {
+            $table->integer('productid')->autoIncrement()->unique();
             //$table->integer('product_id');
             //$table->integer('categoryid')->unsigned();
             //$table->foreign('categoryid')
@@ -28,6 +28,7 @@ class Product extends Migration
             $table->string('productimg');
             $table->timestamps();
         });
+        DB::update("ALTER TABLE products AUTO_INCREMENT = 1001;");
     }
 
     /**
@@ -37,6 +38,6 @@ class Product extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 }
