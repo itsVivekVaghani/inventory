@@ -7,13 +7,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
  @include('layouts.partials._head')
  <script>
-    function calc()
+    function calc1()
     {
-        var n1= parseInt(document.getElementById('total_qntt_1').value);
-        var n2= parseInt(document.getElementById('price_item_1').value);
-
-        document.getElementById('total_price').value = n1 + n2;
+        var q = parseFloat(document.getElementById('purchase_qty').value);
+        var r = parseFloat(document.getElementById('purchase_rate').value);
+        var ntm = document.getElementById('net_totalamount').value = (q*r);
+        var d = parseFloat(document.getElementById('purchase_dis').value);
+        var gtm =(ntm*d)/100;
+        document.getElementById('gtotalamount').value = (ntm-gtm);
     }
+
+    function createrow()
+    {
+        var table = document.getElementById("purchaseTable");
+        var row = table.insertRow(2);
+        var cell1 = row.insertCell(0);
+        var element1 = document.createElement("input");  
+        element1.type = "select"
+        cell1.appendChild(element1);
+        //var cell2 = row.insertCell(1);
+        //var cell1 = row.insertCell(2);
+        //var cell2 = row.insertCell(3);
+        //var cell1 = row.insertCell(4);
+        //var cell2 = row.insertCell(5);
+        
+    }
+
  </script>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -35,22 +54,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <span class="border">
     <div class="card card-danger">
         <div class="card-header">
-            <h3 class="card-title">Add Purchase</h3>
+            <span class="float-left"><h3 class="card-title">Add Purchase</h3></span>
+            <a href="add_products"><span class="btn btn-warning row fileinput-button dz-clickable float-right">
+                        <i class="fas fa-plus"></i>
+                        <span>Manage Purchase</span>
+                </span></a>
         </div>
         <div class="row">
             <div class="card-body col-sm-12">
                 <div class="panel panel-bd lobidrag">
                     <div class="panel-body">
-                        <form method="post">
+                        <form method="post" action="add_purchase">
+                        @csrf
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group row">
                                         <label for="supplier_sss" class="col-sm-3 col-form-label">Supplier <i class="text-danger">*</i></label>
                                         <div class="col-sm-6">
-                                            <select name="supplier_id" id="supplier_sss" class="form-control " required="" tabindex="1">
-                                                <option value=" ">Select One</option>
-                                                <option value="EKMP5AD7HN3LSLQR8XRN">brayen</option>
-                                            </select>
+                                        <select name="supplier" class="form-control" tabindex="1">
+                                            <option>--Select One--</option>
+                                            @foreach($supplier as $key => $value)
+                                            <option value="{{$key}}">{{$value}}</option>
+                                            @endforeach
+                                        </select>
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="form-group row">
                                         <label for="date" class="col-sm-4 col-form-label">Purchase Date <i class="text-danger">*</i></label>
                                         <div class="col-sm-8">
-                                            <input type="date" tabindex="2" class="form-control datepicker hasDatepicker" name="purchase_date" value="2021-05-12" id="date" required="">
+                                            <input type="text" tabindex="2" class="form-control datepicker" name="pdate" value="<?php echo date("d-M-Y")?>" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -70,14 +96,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="form-group row">
                                         <label for="supplier_sss" class="col-sm-3 col-form-label">Purchase No. <i class="text-danger">*</i></label>
                                         <div class="col-sm-6">
-                                            <input type="text" tabindex="3" class="form-control" name="chalan_no" placeholder="Purchase No" id="invoice_no" required="">    
+                                            <input type="text" tabindex="3" class="form-control" name="chalan_no" placeholder="Purchase No" id="invoice_no" readonly>    
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group row">
-                                        <label for="date" class="col-sm-4 col-form-label">Purchase Date <i class="text-danger">*</i></label>
+                                        <label for="date" class="col-sm-4 col-form-label">Purchase Details<i class="text-danger">*</i></label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" tabindex="4" id="adress" name="purchase_details" placeholder=" Details" rows="1"></textarea>    
                                         </div>
@@ -89,30 +115,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <table class="table table-bordered table-hover" id="purchaseTable">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">Item Information<i class="text-danger">*</i></th>
+                                            <th class="text-center">Item<i class="text-danger">*</i></th>
                                             <th class="text-center">Stock/Qnt</th>
                                              <th class="text-center">Quantity </th>
                                             <th class="text-center">Rate<i class="text-danger">*</i></th>
-                                            <th class="text-center">Total</th>
+                                            <th class="text-center">Net Amount</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="addPurchaseItem">
                                         <tr>
-                                             <td class="span3 supplier_load">
-                                                Please Select Supplier 
+                                             <td>
+                                             <select name="product" class="form-control" tabindex="5">
+                                                <option>--Select One--</option>
+                                                @foreach($product as $key => $value)
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                            </select>
                                             </td>
                                             <td>
-                                                 <input type="text" id="" class="form-control text-right stock_ctn_1" placeholder="Stock/Qnt" readonly="">
+                                                 <input type="text" id="" class="form-control text-right stock_ctn_1" placeholder="Stock/Qnt" readonly="" tabindex="6">
                                             </td>
                                             <td class="text-right">
-                                                <input type="number" name="product_quantity" id="total_qntt_1" class="form-control text-right prc" placeholder="0.00">
+                                                <input type="number" name="pqty" id="purchase_qty" class="form-control text-right prc" placeholder="0.00" tabindex="7">
                                             </td>
                                             <td class="text-right">
-                                                <input type="number" name="product_rate"  id="price_item_1" onkeyup="calc();" class="form-control price_item1 text-right prc" placeholder="0.00" value="" min="0" tabindex="7">
+                                                <input type="number" name="prate"  id="purchase_rate" onkeyup="calc1();" class="form-control price_item1 text-right prc" placeholder="0.00" value="" min="0" tabindex="8">
                                             </td>
                                             <td class="text-right">
-                                                <input class="form-control total_price text-right" type="text"  name="total_price[]" id="total_price"  tabindex="-1" readonly="readonly">
+                                                <input class="form-control total_price text-right" name="pnamount" type="text" id="net_totalamount"  tabindex="9" readonly="readonly" placeholder="0.00">
                                             </td>
                                             <td>
                                                 <button class="btn btn-danger red" type="button" onclick="deleteRow(this)" tabindex="8"><i class="fas fa-times"></i></button>
@@ -121,50 +152,57 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                        <td class="text-right" colspan="4"><b>Total:</b></td>
-                                        <td class="text-right">
-                                        <input type="text" id="Total" class="text-right form-control" name="total" value="0.00" readonly="readonly">
-                                        </td>
-                                        <td> <button type="button" id="add_invoice_item" class="btn btn-info" name="add-invoice-item" onclick="if (!window.__cfRLUnblockHandlers) return false; addPurchaseOrderField1('addPurchaseItem')" tabindex="17"><i class="fa fa-plus"></i></button>
-                                        <input type="hidden" name="baseUrl" class="baseUrl" value="https://saleserpnew.bdtask.com/saleserp_v9.8_demo/"></td>
+                                            <td class="text-right" colspan="4"><b>Total:</b></td>
+                                            <td class="text-right">
+                                                <input type="text" id="Total" class="text-right form-control" name="total" readonly="readonly" placeholder="0.00" tabindex="10">
+                                            </td>
+                                            <td><button type="button" id="add_item" onclick="createrow();" class="btn btn-info" name="add-invoice-item"><i class="fa fa-plus"></i></button>
+                                            
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right" colspan="4"><b>Discount:</b></td>
+                                            <td class="text-right">
+                                                 <input type="number" name="pdiscount" id="purchase_dis" onkeyup="calc1();" class="form-control text-right prc" placeholder="0.00" tabindex="10"></td>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="text-right" colspan="4"><b>Grand Total:</b></td>
+                                            <td class="text-right">
+                                                <input type="text" id="gtotalamount" class="text-right form-control valid" name="ptotalamount" readonly="readonly" placeholder="0.00" tabindex="12">
+                                            </td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right" colspan="4"><b>Paid Amount:</b></td>
+                                            <td class="text-right">
+                                            <input type="text" id="paidAmount" class="text-right form-control"  name="paid_amount" value="" tabindex="13">
+                                            </td>
+                                            <td> </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2" class="text-right">
+                                            <input type="button" id="full_paid_tab" class="btn btn-warning" value="Full Paid" tabindex="14">
+                                            </td>
+                                            <td class="text-right" colspan="2"><b>Due Amount:</b></td>
+                                            <td class="text-right">
+                                            <input type="text" id="dueAmmount" class="text-right form-control" name="due_amount" value="0.00" readonly="readonly">
+                                            </td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                        <td class="text-right" colspan="4"><b>Discount:</b></td>
-                                        <td class="text-right">
-                                        <input type="text" id="discount" class="text-right form-control discount" onkeyup="if (!window.__cfRLUnblockHandlers) return false; calculate_store(1)" name="discount" placeholder="0.00" value="">
-                                        </td>
-                                        <td>
-                                        </td>
+                                            <td colspan="6" class="text-center">
+                                                <button type="submit" class="btn btn-success">Add Purchase</button>
+                                                <button type="reset" class="btn btn-default">Reset</button>
+                                            </td>                                       
                                         </tr>
-                                        <tr>
-                                        <td class="text-right" colspan="4"><b>Grand Total:</b></td>
-                                        <td class="text-right">
-                                        <input type="text" id="grandTotal" class="text-right form-control valid" name="grand_total_price" value="0.00" readonly="readonly" aria-invalid="false">
-                                        </td>
-                                        <td> </td>
-                                        </tr>
-                                        <tr>
-                                        <td class="text-right" colspan="4"><b>Paid Amount:</b></td>
-                                        <td class="text-right">
-                                        <input type="text" id="paidAmount" class="text-right form-control" onkeyup="if (!window.__cfRLUnblockHandlers) return false; invoice_paidamount()" name="paid_amount" value="">
-                                        </td>
-                                        <td> </td>
-                                        </tr>
-                                        <tr>
-                                        <td colspan="2" class="text-right">
-                                        <input type="button" id="full_paid_tab" class="btn btn-warning" value="Full Paid" tabindex="16" onclick="if (!window.__cfRLUnblockHandlers) return false; full_paid()">
-                                        </td>
-                                        <td class="text-right" colspan="2"><b>Due Amount:</b></td>
-                                        <td class="text-right">
-                                        <input type="text" id="dueAmmount" class="text-right form-control" name="due_amount" value="0.00" readonly="readonly">
-                                        </td>
-                                        <td></td>
-                                        </tr>
-                                    </tfoot>
+                                    </tfoot>     
                                 </table>
                             </div>
-
-
                         </form>
                     </div>
                 </div>

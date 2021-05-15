@@ -165,9 +165,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="purchase_list" class="nav-link">
                 <i class="fas fa-list-alt"></i>
-                  <p>List Purchase</p>
+                  <p>Manage Purchase</p>
                 </a>
               </li>
             </ul>

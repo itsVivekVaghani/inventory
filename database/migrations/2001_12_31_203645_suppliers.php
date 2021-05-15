@@ -14,7 +14,7 @@ class Suppliers extends Migration
     public function up()
     {
         Schema::create('suppliers', function (Blueprint $table) {
-            $table->bigIncrements('supplierid');
+            $table->integer('supplierid')->autoIncrement()->unique();
             $table->string('suppliername');
             $table->string('supplieremail');
             $table->string('suppliermob');
@@ -22,6 +22,7 @@ class Suppliers extends Migration
             $table->integer('supplierbal');
             $table->timestamps();
         });
+        DB::update("ALTER TABLE suppliers AUTO_INCREMENT = 251;");
     }
 
     /**

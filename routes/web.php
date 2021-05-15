@@ -22,21 +22,19 @@ Route::view('/login','login.login');
 Route::post('/store',"Users@store");
 Route::post('/logs',"Users@logs");
 
+
 //product opertaion
 Route::post('/add_products','ProductController@addproduct');
 Route::get('/add_products','ProductController@getcategory');
-
 Route::get('/product_list','ProductController@listproduct');
 Route::get('/delete_product/{productid}','ProductController@deleteproduct');
 Route::get('/edit_product/{productid}','ProductController@editproduct');
 Route::post('/edit_product','ProductController@updateproduct');
 
 
-
 //supplier operation
 Route::post('/new_supplier','SuplierController@addsupplier');
 Route::view('/new_supplier','_newsupplier');
-
 Route::get('/supplier_list','SuplierController@listsupplier');
 Route::get('/delete_supplier/{supplierid}','SuplierController@deletesupplier');
 Route::get('/edit_supplier/{supplierid}','SuplierController@editsupplier');
@@ -45,7 +43,6 @@ Route::post('/edit_supplier','SuplierController@updatesupplier');
 //Customers  operation
 Route::view('/new_customer','_newcustomer');
 Route::post('/new_customer','Newcustomers@addcustomer');
-
 Route::get('/customer_list','Newcustomers@listcustomer');
 Route::get('/delete_customer/{customerid}','Newcustomers@deletecustomer');
 Route::get('/edit_customer/{customerid}','Newcustomers@editcustomer');
@@ -59,6 +56,7 @@ Route::get('/category_list','CategoryController@listcategory');
 
 
 //purchase
-Route::view('/new_purchase','_newpurchase');
-
-
+Route::get('/new_purchase','PurchaseController@getsupplierproduct');
+Route::post('/add_purchase','PurchaseController@addpurchase');
+Route::get('/purchase_list','PurchaseController@purchaselist');
+Route::get('/delete_purchase/{purchaseinvoiceno}','PurchaseController@deletepurchase');
