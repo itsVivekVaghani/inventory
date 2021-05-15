@@ -49,6 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr style="text-align:center">
                     <th>PRODUCT ID <i class="fa fa-sort"></i></th>
                     <th>PRODUCT NAME <i class="fa fa-sort"></i></th>
+                    <th>CATEGORY NAME <i class="fa fa-sort"></i></th>
                     <th>DESCRIPTION</th>
                     <th>PRICE <i class="fa fa-sort"></i></th>
                     <th>IMAGE</th>
@@ -62,6 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr style="text-align:center">
                   <td>{{$item->productid}}</td>
                   <td>{{$item->productname}}</td>
+                  <td>{{$item->categoryname}}</td>
                   <td>{{$item->productdesc}}</td>
                   <td>{{$item->productprice}}</td>
                   <td><img src="./productimg/{{$item->productimg}}" style="width: 150px;"></td>

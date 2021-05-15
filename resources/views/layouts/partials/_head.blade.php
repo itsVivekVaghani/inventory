@@ -26,5 +26,7 @@
   <link rel="stylesheet" href="{{ ('plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ ('plugins/summernote/summernote-bs4.min.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jcalculator/1403955268/jcalculator.min.js" integrity="sha512-f33VObKxjd+I64ZBlx9t9hXcE6GiomTtjhxFvDO7UEWS66fFF8lFl1pWcF546+3dnc2j+sc3CBaQYES/kUWCeg==" crossorigin="anonymous"></script>
 
   @stack('css')

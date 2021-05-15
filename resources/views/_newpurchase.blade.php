@@ -6,6 +6,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 <head>
  @include('layouts.partials._head')
+ <script>
+    function calc()
+    {
+        var n1= parseInt(document.getElementById('total_qntt_1').value);
+        var n2= parseInt(document.getElementById('price_item_1').value);
+
+        document.getElementById('total_price').value = n1 + n2;
+    }
+ </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -97,13 +106,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                  <input type="text" id="" class="form-control text-right stock_ctn_1" placeholder="Stock/Qnt" readonly="">
                                             </td>
                                             <td class="text-right">
-                                                <input type="text" name="product_quantity[]" id="total_qntt_1" class="form-control text-right" placeholder="0.00">
-                                            </td>
-                                            <td class="">
-                                                <input type="text" name="product_rate[]" onkeyup="quantity_calculate(1);" onchange="quantity_calculate(1);" id="price_item_1" class="form-control price_item1 text-right" placeholder="0.00" value="" min="0" tabindex="7">
+                                                <input type="number" name="product_quantity" id="total_qntt_1" class="form-control text-right prc" placeholder="0.00">
                                             </td>
                                             <td class="text-right">
-                                                <input class="form-control total_price text-right" type="text" name="total_price[]" id="total_price_1" value="0.00" tabindex="-1" readonly="readonly">
+                                                <input type="number" name="product_rate"  id="price_item_1" onkeyup="calc();" class="form-control price_item1 text-right prc" placeholder="0.00" value="" min="0" tabindex="7">
+                                            </td>
+                                            <td class="text-right">
+                                                <input class="form-control total_price text-right" type="text"  name="total_price[]" id="total_price"  tabindex="-1" readonly="readonly">
                                             </td>
                                             <td>
                                                 <button class="btn btn-danger red" type="button" onclick="deleteRow(this)" tabindex="8"><i class="fas fa-times"></i></button>
@@ -186,6 +195,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 @include('layouts.partials._footer-script')
+
+<!-- <script type="text/javascript">
+$(function () {
+    
+    var total_amount = function(){
+        var sum = 0;
+        $('.amount').each(function() {
+
+            var num = $(this).val().replace(',','');
+            if(num ! == 0) {
+                sum += parseFloat(num);
+            }
+        });
+        $('#total_price').val(sum);
+    }
+    $('.amount').keyup(function(){
+        total_amount();
+    })
+    
+}); -->
+
+<script>
+
+// $('.text-right').on('input','prc',function(){
+//     var totalSum = 0;
+//     $('.text-right .prc').each(function(){
+//         var inputVal = $(this).val();
+//         if($.isNumeric(inputVal)){
+//             totalSum += parseFloat(inputVal);
+
+//         }
+//     });
+//     $('#total_price').text(totalSum);
+// });
+
+
+</script>
 
 </body>
 </html>

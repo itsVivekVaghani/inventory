@@ -18,8 +18,14 @@ class ProductController extends Controller
     
     function listproduct()
     {
-        $data=Product::all();
+        $data=DB::table('products')
+        ->join('category','products.categoryid',"=",'category.categoryid')
+        ->select('products.productid','products.productname','category.categoryname',
+        'products.productdesc','products.productprice','products.productimg')
+        ->get();
         return view('_productlist',["data"=>$data]);
+        // $data=Product::all();
+        // return view('_productlist',["data"=>$data]);
     }
 
     function addproduct(Request $req)
