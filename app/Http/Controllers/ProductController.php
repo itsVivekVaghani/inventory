@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Category;
+use App\stock;
+
 
 class ProductController extends Controller
 {
@@ -44,6 +46,10 @@ class ProductController extends Controller
             $files->move('productimg',$name);
             $pro->productimg=$name;
         }
+        $st = new stock;
+        $st->stockid;
+        $st->productname=$req->input('pname');
+        $st->save();
         $pro->save();
         $req->session()->flash('status','Product Added Sucessfully');
         return redirect('product_list');
