@@ -36,12 +36,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
               
               @if(Session::get('status'))
-              <div class="alert alert-sucess alert-dismissible fade show" role="alert">
-                <strong>{{Session::get('status')}}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+              <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <strong><h5><i class="icon fas fa-check"></i> {{Session::get('status')}} !!!</h5></strong>
+                </div>
              @endif
               <!-- /.card-header -->
               <div class="card-body">
@@ -59,8 +57,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <td>{{$item->categoryid}}</td>
                   <td>{{$item->categoryname}}</td>
                   <td> 
-                    <a href="edit_product/{{$item->productid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>
-                    <a href="delete_product/{{$item->productid}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
+                    <a href="edit_category/{{$item->categoryid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>
+                    <a href="delete_category/{{$item->categoryid}}" class="btn bg-danger btn-sm"><i class="fa fa-trash"></i></a>
                   </td>
                   </tr>
                   @endforeach

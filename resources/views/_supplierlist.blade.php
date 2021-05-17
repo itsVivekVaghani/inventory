@@ -33,12 +33,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </span></a>
               </div>
               @if(Session::get('status'))
-              <div class="alert alert-sucess alert-dismissible fade show" role="alert">
-                <strong>{{Session::get('status')}}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+              <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <strong><h5><i class="icon fas fa-check"></i> {{Session::get('status')}} !!!</h5></strong>
+                </div>
              @endif
               <!-- /.card-header -->
               <div class="card-body">

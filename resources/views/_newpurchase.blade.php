@@ -22,15 +22,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
         var table = document.getElementById("purchaseTable");
         var row = table.insertRow(2);
         var cell1 = row.insertCell(0);
-        var element1 = document.createElement("input");  
-        element1.type = "select"
-        cell1.appendChild(element1);
-        //var cell2 = row.insertCell(1);
-        //var cell1 = row.insertCell(2);
-        //var cell2 = row.insertCell(3);
-        //var cell1 = row.insertCell(4);
-        //var cell2 = row.insertCell(5);
-        
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var s = '<button class="btn btn-danger red" type="button" onclick="deleterow()" tabindex="8"><i class="fas fa-times"></i></button>'
+       
+        cell1.innerHTML = "";
+        cell2.innerHTML = "<input type='text' class='form-control text-right stock_ctn_1' placeholder='Stock/Qnt' readonly=''>";
+        cell3.innerHTML = "<input type='number' name='pqty' id='purchase_qty' class='form-control text-right prc' placeholder='0.00' >";
+        cell4.innerHTML = "<input type='number' name='prate'  id='purchase_rate' onkeyup='calc1();' class='form-control price_item1 text-right prc' placeholder='0.00' value='' min='0'>";
+        cell5.innerHTML = "<input class='form-control total_price text-right' name='pnamount' type='text' id='net_totalamount' readonly='readonly' placeholder='0.00'>";
+        cell6.innerHTML = s;
+        //row.appendChild(cell1);
+    }
+
+    function deleterow()
+    {
+        var table = document.getElementById("purchaseTable");
+        table.deleteRow(2);
     }
 
  </script>

@@ -53,6 +53,9 @@ Route::post('/edit_customer','Newcustomers@updatecustomer');
 Route::view('/add_category','_addcategory');
 Route::post('/add_category','CategoryController@addcategory');
 Route::get('/category_list','CategoryController@listcategory');
+Route::get('/delete_category/{categoryid}','CategoryController@deletecategory');
+Route::get('/edit_category/{categoryid}','CategoryController@editcategory');
+Route::post('/edit_category','CategoryController@updatecategory');
 
 
 //purchase
