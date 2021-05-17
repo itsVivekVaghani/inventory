@@ -151,17 +151,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <input type="number" name="pqty" id="purchase_qty" class="form-control text-right prc" placeholder="0.00" tabindex="7">
                                             </td>
                                             <td class="text-right">
-<<<<<<< Updated upstream
+
                                                 <input type="number" name="prate"  id="purchase_rate" onkeyup="calc1();" class="form-control price_item1 text-right prc" placeholder="0.00" value="" min="0" tabindex="8">
                                             </td>
                                             <td class="text-right">
                                                 <input class="form-control total_price text-right" name="pnamount" type="text" id="net_totalamount"  tabindex="9" readonly="readonly" placeholder="0.00">
-=======
-                                                <input type="number" name="product_rate"  id="price_item_1" onkeyup="calc();"  class="form-control price_item1 text-right prc" placeholder="0.00" value="" min="0" tabindex="7">
-                                            </td>
-                                            <td class="text-right">
-                                                <input class="form-control total_price text-right" type="text"  name="total_price[]" id="total_price"  value="0.0" tabindex="-1" readonly="readonly">
->>>>>>> Stashed changes
+
                                             </td>
                                             <td>
                                                 <button class="btn btn-danger red" type="button" onclick="deleteRow(this)" tabindex="8"><i class="fas fa-times"></i></button>
