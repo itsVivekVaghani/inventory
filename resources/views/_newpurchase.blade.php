@@ -137,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <tbody id="addPurchaseItem">
                                         <tr>
                                              <td>
-                                             <select name="product" class="form-control" tabindex="5">
+                                             <select name="product" id="p_name" class="form-control" tabindex="5" >
                                                 <option>--Select One--</option>
                                                 @foreach($product as $key => $value)
                                                 <option value="{{$key}}">{{$value}}</option>
@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </select>
                                             </td>
                                             <td>
-                                                 <input type="text" id="" class="form-control text-right stock_ctn_1" placeholder="Stock/Qnt" readonly="" tabindex="6">
+                                                 <input type="text" id="a_qty" value="" class="form-control text-right stock_ctn_1" placeholder="Stock/Qnt" readonly="readonly" readonly="" tabindex="6">
                                             </td>
                                             <td class="text-right">
                                                 <input type="number" name="pqty" id="purchase_qty" class="form-control text-right prc" placeholder="0.00" tabindex="7">

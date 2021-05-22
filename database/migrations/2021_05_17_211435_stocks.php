@@ -15,7 +15,8 @@ class Stocks extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->integer('stockid')->autoIncrement()->unique();
-            $table->string('productname');
+            $table->integer('productid');
+            $table->foreign('productid')->references('productid')->on('products');
             $table->integer('inquantity')->nullable();
             $table->integer('outquantity')->nullable();
             $table->integer('finalstock')->nullable();
