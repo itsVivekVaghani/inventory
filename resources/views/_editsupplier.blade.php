@@ -17,7 +17,7 @@ scratch. This aapage gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
     @include('layouts.partials._sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
+  <!-- Content jjjWrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @yield('content')
