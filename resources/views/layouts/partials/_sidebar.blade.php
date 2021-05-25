@@ -220,32 +220,6 @@
             </ul>
           </li>
         </ul>
-
-        <!--Stock-->
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="fas fa-users"></i>
-              <p>
-                Stock
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="new_customer" class="nav-link">
-                <i class="fas fa-user-plus"></i>
-                  <p>Stock Report</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="customer_list" class="nav-link">
-                <i class="fas fa-list-alt"></i>
-                  <p><---></p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
