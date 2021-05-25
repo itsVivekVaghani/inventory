@@ -44,6 +44,13 @@ class ProductController extends Controller
             $files->move('productimg',$name);
             $pro->productimg=$name;
         }
+<<<<<<< HEAD
+=======
+        $st = new stock;
+        $st->stockid;
+        $st->productname=$req->input('pname');
+        $st->save();
+>>>>>>> parent of fa1ac19 (stock table add)
         $pro->save();
         $req->session()->flash('status','Product Added Sucessfully');
         return redirect('product_list');
