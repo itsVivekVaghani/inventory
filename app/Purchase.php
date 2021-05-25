@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     //
-    protected $table = 'purchase';
+    protected $table = 'purchases';
     protected $primaryKey = 'purchaseinvoiceno';
 }

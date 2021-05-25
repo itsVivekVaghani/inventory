@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Category;
+use App\stock;
+
 
 class ProductController extends Controller
 {
@@ -44,15 +46,15 @@ class ProductController extends Controller
             $files->move('productimg',$name);
             $pro->productimg=$name;
         }
-<<<<<<< HEAD
-=======
-        $st = new stock;
-        $st->stockid;
-        $st->productname=$req->input('pname');
-        $st->save();
->>>>>>> parent of fa1ac19 (stock table add)
+        //stock table data add
+       
+        
         $pro->save();
         $req->session()->flash('status','Product Added Sucessfully');
+        $st = new stock;
+        $st->stockid;
+        $st->productid= $pro->productid;
+        $st->save();
         return redirect('product_list');
     }
 
@@ -62,6 +64,8 @@ class ProductController extends Controller
         //DB::delete('delete from products where productid = ?',[$productid]);
 
         //image delete
+        //delete
+        //stock::find($productid)->delete();
         $data=Product::find($productid);
         $img_path=$data->productimg;
         unlink("productimg/".$img_path);
