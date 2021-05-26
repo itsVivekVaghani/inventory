@@ -7,6 +7,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
  @include('layouts.partials._head')
  <script>
+
+    
+    function qtyload()
+    {
+        var prid = document.getElementById('p_name').value;  
+        var locations = [
+        @foreach ($stock as $st)
+            [ {{ $st->productid }}, {{ $st->finalstock }} ],     
+        @endforeach
+        ];
+
+        for (i = 0; i < locations.length; i++) {
+            if(prid==locations[i][0])
+            {
+                document.getElementById('a_qty').value = locations[i][1];
+            }
+        }
+    }
+    
     function calc1()
     {
         var q = parseFloat(document.getElementById('purchase_qty').value);
@@ -15,6 +34,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
         var d = parseFloat(document.getElementById('purchase_dis').value);
         var gtm =(ntm*d)/100;
         document.getElementById('gtotalamount').value = (ntm-gtm);
+
+        var pa = parseFloat(document.getElementById('paidAmount').value);
+        document.getElementById('dueAmmount').value = ((ntm-gtm)-pa);
+        
+    }
+
+    function fullpaid()
+    {
+        var q = parseFloat(document.getElementById('purchase_qty').value);
+        var r = parseFloat(document.getElementById('purchase_rate').value);
+        var ntm = document.getElementById('net_totalamount').value = (q*r);
+        var d = parseFloat(document.getElementById('purchase_dis').value);
+        var gtm =(ntm*d)/100;
+        document.getElementById('gtotalamount').value = (ntm-gtm);
+
+        document.getElementById('paidAmount').value=(ntm-gtm);
     }
 
     function createrow()
@@ -107,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="form-group row">
                                         <label for="supplier_sss" class="col-sm-3 col-form-label">Purchase No. <i class="text-danger">*</i></label>
                                         <div class="col-sm-6">
-                                            <input type="text" tabindex="3" class="form-control" name="chalan_no" placeholder="Purchase No" id="invoice_no" readonly>    
+                                            <input type="text" tabindex="3" class="form-control" name="chalan_no" id="invoice_no" readonly>    
                                         </div>
                                     </div>
                                 </div>
@@ -131,13 +166,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                              <th class="text-center">Quantity </th>
                                             <th class="text-center">Rate<i class="text-danger">*</i></th>
                                             <th class="text-center">Net Amount</th>
-                                            <th class="text-center">Action</th>
+                                            {{--<th class="text-center">Action</th>--}}
                                         </tr>
                                     </thead>
                                     <tbody id="addPurchaseItem">
                                         <tr>
                                              <td>
-                                             <select name="product" id="p_name" class="form-control" tabindex="5" >
+                                             <select name="product" id="p_name" class="form-control" tabindex="5" onChange="qtyload();">
                                                 <option>--Select One--</option>
                                                 @foreach($product as $key => $value)
                                                 <option value="{{$key}}">{{$value}}</option>
@@ -145,7 +180,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </select>
                                             </td>
                                             <td>
-                                                 <input type="text" id="a_qty" value="" class="form-control text-right stock_ctn_1" placeholder="Stock/Qnt" readonly="readonly" readonly="" tabindex="6">
+                                                 <input type="text" id="a_qty" value="" placeholder="Stock/Qnt" class="form-control text-right stock_ctn_1" readonly="readonly" tabindex="6">
                                             </td>
                                             <td class="text-right">
                                                 <input type="number" name="pqty" id="purchase_qty" class="form-control text-right prc" placeholder="0.00" tabindex="7">
@@ -158,27 +193,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <input class="form-control total_price text-right" name="pnamount" type="text" id="net_totalamount"  tabindex="9" readonly="readonly" placeholder="0.00">
 
                                             </td>
-                                            <td>
+                                            {{--<td>
                                                 <button class="btn btn-danger red" type="button" onclick="deleteRow(this)" tabindex="8"><i class="fas fa-times"></i></button>
-                                            </td>
+                                            </td>--}}
                                         </tr>
                                     </tbody>
                                     <tfoot>
-                                        <tr>
+                                        {{--<tr>
                                             <td class="text-right" colspan="4"><b>Total:</b></td>
                                             <td class="text-right">
                                                 <input type="text" id="Total" class="text-right form-control" name="total" readonly="readonly" placeholder="0.00" tabindex="10">
                                             </td>
                                             <td><button type="button" id="add_item" onclick="createrow();" class="btn btn-info" name="add-invoice-item"><i class="fa fa-plus"></i></button>
                                             
-                                        </tr>
+                                        </tr>--}}
 
                                         <tr>
                                             <td class="text-right" colspan="4"><b>Discount:</b></td>
                                             <td class="text-right">
                                                  <input type="number" name="pdiscount" id="purchase_dis" onkeyup="calc1();" class="form-control text-right prc" placeholder="0.00" tabindex="10"></td>
                                             </td>
-                                            <td></td>
+                                            
                                         </tr>
                                         
                                         <tr>
@@ -186,26 +221,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <td class="text-right">
                                                 <input type="text" id="gtotalamount" class="text-right form-control valid" name="ptotalamount" readonly="readonly" placeholder="0.00" tabindex="12">
                                             </td>
-                                            <td></td>
+                                            
                                         </tr>
 
                                         <tr>
                                             <td class="text-right" colspan="4"><b>Paid Amount:</b></td>
                                             <td class="text-right">
-                                            <input type="text" id="paidAmount" class="text-right form-control"  name="paid_amount" value="" tabindex="13">
+                                            <input type="text" id="paidAmount" class="text-right form-control"  name="paid_amount" value="" tabindex="13" onkeyup="calc1();">
                                             </td>
-                                            <td> </td>
+                                            
                                         </tr>
 
                                         <tr>
                                             <td colspan="2" class="text-right">
-                                            <input type="button" id="full_paid_tab" class="btn btn-warning" value="Full Paid" tabindex="14">
+                                            <input type="button" id="full_paid_tab" class="btn btn-warning" value="Full Paid" tabindex="14" onClick="fullpaid();">
                                             </td>
                                             <td class="text-right" colspan="2"><b>Due Amount:</b></td>
                                             <td class="text-right">
                                             <input type="text" id="dueAmmount" class="text-right form-control" name="due_amount" value="0.00" readonly="readonly">
                                             </td>
-                                            <td></td>
+                                            
                                         </tr>
                                         <tr>
                                             <td colspan="6" class="text-center">

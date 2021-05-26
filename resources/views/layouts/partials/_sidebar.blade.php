@@ -219,6 +219,25 @@
               </li>
             </ul>
           </li>
+
+          <!--Stock-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fas fa-signal"></i>
+              <p>
+                Stock
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="stock_report" class="nav-link">
+                <i class="fas fa-chart-line"></i>
+                  <p>Stock Report</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

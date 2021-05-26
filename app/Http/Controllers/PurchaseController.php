@@ -19,10 +19,12 @@ class PurchaseController extends Controller
         // $cs $pur->productid = $req->input('product');
         $supplier=DB::table('suppliers')->pluck("suppliername","supplierid");
         $product=DB::table('products')->pluck("productname","productid");
+        //$stock=DB::table('stocks')::all();
+        $stock = Stock::all();
         // $stock=DB::table('stocks')
         // ->select("inquantity'")
         // ->;
-        return view('_newpurchase',compact('supplier','product'));
+        return view('_newpurchase',compact('supplier','product','stock'));
         
         //return view('_newpurchase',compact('product'));
     }
