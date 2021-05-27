@@ -50,6 +50,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         document.getElementById('gtotalamount').value = (ntm-gtm);
 
         document.getElementById('paidAmount').value=(ntm-gtm);
+        var pa = parseFloat(document.getElementById('paidAmount').value);
+        document.getElementById('dueAmmount').value = ((ntm-gtm)-pa);
     }
 
     function createrow()
@@ -227,7 +229,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <tr>
                                             <td class="text-right" colspan="4"><b>Paid Amount:</b></td>
                                             <td class="text-right">
-                                            <input type="text" id="paidAmount" class="text-right form-control"  name="paid_amount" value="" tabindex="13" onkeyup="calc1();">
+                                            <input type="text" id="paidAmount" class="text-right form-control"  name="paid_amount" value="0" tabindex="13" onkeyup="calc1();">
                                             </td>
                                             
                                         </tr>
@@ -238,7 +240,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </td>
                                             <td class="text-right" colspan="2"><b>Due Amount:</b></td>
                                             <td class="text-right">
-                                            <input type="text" id="dueAmmount" class="text-right form-control" name="due_amount" value="0.00" readonly="readonly">
+                                            <input type="text" id="dueAmmount" class="text-right form-control" name="due_amount" value="0" readonly="readonly">
                                             </td>
                                             
                                         </tr>

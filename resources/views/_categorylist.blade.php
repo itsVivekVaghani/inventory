@@ -17,14 +17,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-    @include('layouts.partials._sidebar')
+  @include('layouts.partials._sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @yield('content')
     <section class="content">
-    <div></div>
+    <!--<div></div>-->
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title col-m-3"><i class="fas fa-clipboard-list fa-2x"></i> Manage Category</h3>

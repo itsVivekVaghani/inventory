@@ -8,6 +8,7 @@ use App\Purchase;
 use App\Supplier;
 use App\Product;
 use App\Stock;
+use App\Expense;
 
 
 class PurchaseController extends Controller
@@ -61,8 +62,7 @@ class PurchaseController extends Controller
         $pur->totalamount = $req->input('ptotalamount');
         $pur->save();
         
-        //$st = new Stock;
-
+        // Stock Add in Stock
         $st = DB::table('stocks')
         ->select('inquantity')
         ->where('productid',$req->input('product'))
@@ -88,13 +88,27 @@ class PurchaseController extends Controller
              'finalstock'=>  $ft - $pt
         ]);
 
+        // Amount Add in Expense Table
+        $ex = new Expense;
+        $ex->expenseid;
+        $ex->supplierid= $req->input('supplier');
+        $ex->receiveamount= $req->input('paid_amount');
+        $ex->dueamount= $req->input('due_amount');
+        $ex->totalamount= $req->input('ptotalamount');
+        $ex->expensedate= $req->input('pdate');
+        $ex->save();
+        // $st = DB::table('transactionexpense')
+        // ->select('inquantity')
+        // ->where('productid',$req->input('product'))
+        // ->value('inquantity');
+        // // //$cal = (int)$st;
+        // $ft = $st + $req->input('pqty');
         
-        //$users->save();
-        // $st = stock::find($req->input('product'));
-        // //$st->productid;
-        // $st->inquantity = $req->input('pqty');
-        // $st->save();
-
+        // $users = DB::table('stocks')
+        // ->where('productid',$req->input('product'))
+        // ->update([
+        //      'inquantity'=>  $ft
+        // ]);
         
         
         $req->session()->flash('status','Product Purchase Sucessfully');

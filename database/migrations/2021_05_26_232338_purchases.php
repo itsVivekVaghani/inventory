@@ -28,7 +28,6 @@ class Purchases extends Migration
             $table->timestamps();
         });
         DB::update("ALTER TABLE purchases AUTO_INCREMENT = 2021001;");
-    
     }
 
     /**
