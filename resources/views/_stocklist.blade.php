@@ -28,8 +28,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <h3 class="card-title col-m-3"><i class="fas fa-chart-line fa-2x"></i>  Stock Report</h3>   
               </div>
               
+              
               <!-- /.card-header -->
               <div class="card-body">
+              <div class="text-center" style="color: green;">
+              <h4>
+                <?php date_default_timezone_set("Asia/Kolkata");
+                echo "Stock Date : " . date("Y-m-d");?>
+              </h4>
+              <h4>
+                <?php date_default_timezone_set("Asia/Kolkata");
+                echo "Print Date : " . date("Y-m-d h:i:sa");?>
+              </h4>
+              
+              </div>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr style="text-align:center">

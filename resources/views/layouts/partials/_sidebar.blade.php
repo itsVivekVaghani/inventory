@@ -136,7 +136,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="new_sale" class="nav-link">
                 <i class="fab fa-shopify"></i>
                   <p>Add Sales</p>
                 </a>

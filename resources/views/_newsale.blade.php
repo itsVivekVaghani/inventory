@@ -140,6 +140,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </tr>
 
                                         <tr>
+                                            <td class="text-right" colspan="5"><b>IGST %</b></td>
+                                            <td class="text-right">
+                                            <input id="total_tax_ammount1" tabindex="-1" class="form-control text-right valid totalTax" name="total_tax1" value="0.00"  aria-invalid="false" type="text">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right" colspan="5"><b>CGST %</b></td>
+                                            <td class="text-right">
+                                            <input id="total_tax_ammount1" tabindex="-1" class="form-control text-right valid totalTax" name="total_tax1" value="0.00"  aria-invalid="false" type="text">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right" colspan="5"><b>Total Tax:</b></td>
+                                            <td class="text-right">
+                                            <input id="total_tax_amount" tabindex="-1" class="form-control text-right valid" name="total_tax" value="0.00" readonly="readonly" aria-invalid="false" type="text">
+                                            </td>
+                                            
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right" colspan="5"><b>Shipping Cost:</b></td>
+                                            <td class="text-right">
+                                            <input type="text" id="shipping_cost" class="form-control text-right" name="shipping_cost" onkeyup="if (!window.__cfRLUnblockHandlers) return false; bdtask_invoice_quantity_calculate(1);" onchange="if (!window.__cfRLUnblockHandlers) return false; bdtask_invoice_quantity_calculate(1);" placeholder="0.00" tabindex="14">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
                                             <td colspan="5" style="text-align:right;"><b>Grand Total:</b></td>
                                             <td class="text-right">
                                                 <input type="text" id="grandTotal" tabindex="" class="form-control text-right" name="grand_total_price" value="0.00" readonly="readonly">
@@ -161,6 +190,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <td class="text-right">
                                                 <input type="text" id="dueAmmount" class="form-control text-right" name="due_amount" value="0.00" readonly="readonly">
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" class="text-center">
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                                <button type="reset" class="btn btn-default">Reset</button>
+                                            </td>                                       
                                         </tr>
                                     </tfoot>    
                                 </table>
