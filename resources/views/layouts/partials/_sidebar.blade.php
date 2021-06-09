@@ -142,7 +142,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="sale_list" class="nav-link">
                 <i class="fas fa-tags"></i>
                   <p>List Sales</p>
                 </a>

@@ -14,7 +14,7 @@ class Newcustomers extends Migration
     public function up()
     {
         Schema::create('newcustomers', function (Blueprint $table) {
-            $table->bigIncrements('customerid');
+            $table->integer('customerid')->autoIncrement()->unique();
             $table->string('customername');
             $table->string('customermob');
             $table->string('customeradd');
@@ -22,6 +22,7 @@ class Newcustomers extends Migration
             $table->string('customeremail');
             $table->timestamps();
         });
+        DB::update("ALTER TABLE newcustomers AUTO_INCREMENT = 251;");
     }
 
     /**

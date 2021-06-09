@@ -64,9 +64,16 @@ Route::post('/add_purchase','PurchaseController@addpurchase');
 Route::get('/purchase_list','PurchaseController@purchaselist');
 Route::get('/delete_purchase/{purchaseinvoiceno}','PurchaseController@deletepurchase');
 
+
+//Sale
+Route::get('/new_sale','SaleController@getcustomerproduct');
+Route::post('/add_sale','SaleController@addsale');
+Route::get('/sale_list','SaleController@salelist');
+Route::get('/delete_sale/{saleinvoiceno}','SaleController@deletesale');
+
 //stock
 Route::get('/stock_report','StockController@stocklist');
 
 
 //sale
-Route::view('/new_sale','_newsale');
+//Route::view('/new_sale','_newsale');
