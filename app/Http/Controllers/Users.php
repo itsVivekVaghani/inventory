@@ -80,7 +80,7 @@ class Users extends Controller
 
         if(count($data))
         {
-            return redirect('/temp');
+            return redirect('/dashboard');
         }
         else{
             $abc = "enter the valid Username and Passwords";
