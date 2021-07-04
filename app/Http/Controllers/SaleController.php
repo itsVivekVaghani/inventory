@@ -12,6 +12,7 @@ use App\Expense;
 use App\Income;
 use App\Sale;
 use App\Newcustomer;
+use App\Profit;
 
 class SaleController extends Controller
 {
@@ -115,7 +116,31 @@ class SaleController extends Controller
         // ->update([
         //      'inquantity'=>  $ft
         // ]);
+
+        // Profit And Loss Formula
+
+        // $purchase_price = DB::table('products')
+        // ->select('purchaseprice')
+        // ->where('productid',$req->input('product'))
+        // ->value('purchaseprice');
         
+        // $total_sale_price = $req->input('pqty') * $req->input('prate');
+        // $total_purchse_price = $req->input('pqty') * $purchase_price;
+
+        // $total_profit = $total_sale_price - $total_purchse_price;
+
+        // $pr = new Profit;
+        // $pr->profitid;
+        // $pr->saleinvoiceno = $sal->saleinvoiceno;
+        // $pr->productid = $req->input('product');
+        // $pr->saledate = $req->input('pdate');
+        // $pr->saleqty = $req->input('pqty');
+        // $pr->saleprice = $req->input('prate');
+        // $pr->totalsaleprice = $req->input('pqty') * $req->input('prate');
+        // $pr->totalpurchaseprice = $req->input('pqty') * $purchase_price;
+        // $pr->profitamount = $total_profit;
+        // $pr->save();
+
         
         $req->session()->flash('status','Product Sale Sucessfully');
         return redirect('sale_list');
