@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Sales extends Migration
+class Profitloss extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,21 @@ class Sales extends Migration
      */
     public function up()
     {
-        Schema::create('sales', function (Blueprint $table) {
-            $table->integer('saleinvoiceno')->autoIncrement()->unique();
+        Schema::create('profitloss', function (Blueprint $table){
+            $table->integer('profitid')->autoIncrement()->unique();
             $table->integer('productid');
             $table->foreign('productid')->references('productid')->on('products');
-            $table->integer('customerid');
-            $table->foreign('customerid')->references('customerid')->on('newcustomers');
+            $table->integer('saleinvoiceno');
+            $table->foreign('saleinvoiceno')->references('saleinvoiceno')->on('sales');
             $table->string('saledate');
             $table->integer('saleqty');
             $table->integer('saleprice');
-            $table->integer('nettotalamount');
-            $table->integer('discount');
-            $table->integer('totalamount');
+            $table->integer('purchaseprice')->nullable();
+            $table->integer('totalsaleprice');
+            $table->integer('totalpurchaseprice')->nullable();
+            $table->integer('profitamount')->nullable();
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -37,6 +37,6 @@ class Sales extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('profitloss');
     }
 }
