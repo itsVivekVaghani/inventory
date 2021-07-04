@@ -24,7 +24,8 @@ class Products extends Migration
             $table->foreign('categoryid')->references('categoryid')->on('category');
             $table->string('productname');
             $table->string('productdesc');
-            $table->integer('productprice');
+            $table->integer('purchaseprice');
+            $table->integer('saleprice');
             $table->string('productimg');
             $table->timestamps();
         });

@@ -64,11 +64,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
 
                   <div class="form-group row">
-                    <label for="inputproduct" class="col-sm col-form-label">Product Price</label>
-                    <div class="col-sm-10">
-                      <input type="text"required autocomplete="off" class="form-control" name="pprice" placeholder="Product Price">
-                    </div>
+                    <table>
+                    <tr>
+                      <td>
+                      <label for="inputproduct" class="col-sm col-form-label">Purchase Price</label>
+                      </td>
+                      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                      <td>
+                        <input type="text"required autocomplete="off" class="form-control" name="pprice" placeholder="Product Purchase Price">
+                      </td>
+
+                      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                      <td>
+                      <label for="inputproduct" class="col-sm col-form-label">Sales Price</label>
+                      </td>
+                      <td>  
+                        <input type="text"required autocomplete="off" class="form-control" name="psprice" placeholder="Product Sales Price">
+                      </td>
+                       
+
+                    </tr>
+                    </table>
                   </div>
+
+                  
                 
                   <div class="form-group row">
                     <label for="inputpi" class="col-sm col-form-label">Image</label>

@@ -23,7 +23,7 @@ class ProductController extends Controller
         $data=DB::table('products')
         ->join('category','products.categoryid',"=",'category.categoryid')
         ->select('products.productid','products.productname','category.categoryname',
-        'products.productdesc','products.productprice','products.productimg')
+        'products.productdesc','products.purchaseprice','products.saleprice','products.productimg')
         ->get();
         return view('_productlist',["data"=>$data]);
         // $data=Product::all();
@@ -38,7 +38,8 @@ class ProductController extends Controller
         $pro->categoryid=$req->input('category');
         $pro->productname=$req->input('pname');
         $pro->productdesc=$req->input('pdesc');
-        $pro->productprice=$req->input('pprice');
+        $pro->purchaseprice=$req->input('pprice');
+        $pro->saleprice=$req->input('psprice');
         
         if($files=$req->file('image'))
         {

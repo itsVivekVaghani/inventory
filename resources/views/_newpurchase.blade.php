@@ -24,6 +24,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 document.getElementById('a_qty').value = locations[i][1];
             }
         }
+
+        var locations1 = [
+        @foreach ($product1 as $pr)
+            [ {{ $pr->productid }}, {{ $pr->purchaseprice}} ],     
+        @endforeach
+        ];
+
+        for (j = 0; j < locations1.length; j++) {
+            if(prid==locations1[j][0])
+            {
+                document.getElementById('purchase_rate').value = locations1[j][1];
+            }
+        }
+
+        
+        
     }
     
     function calc1()
@@ -165,8 +181,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <tr>
                                             <th class="text-center">Item<i class="text-danger">*</i></th>
                                             <th class="text-center">Stock/Qnt</th>
-                                             <th class="text-center">Quantity </th>
-                                            <th class="text-center">Rate<i class="text-danger">*</i></th>
+                                             <th class="text-center">Quantity <i class="text-danger">*</i></th>
+                                            <th class="text-center">Rate</th>
                                             <th class="text-center">Net Amount</th>
                                             {{--<th class="text-center">Action</th>--}}
                                         </tr>
@@ -185,11 +201,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                  <input type="text" id="a_qty" value="" placeholder="Stock/Qnt" class="form-control text-right stock_ctn_1" readonly="readonly" tabindex="6">
                                             </td>
                                             <td class="text-right">
-                                                <input type="number" name="pqty" id="purchase_qty" class="form-control text-right prc" placeholder="0.00" tabindex="7">
+                                                <input type="number" name="pqty" id="purchase_qty" onkeyup="calc1();" class="form-control text-right prc" placeholder="0.00" tabindex="7">
                                             </td>
                                             <td class="text-right">
-
-                                                <input type="number" name="prate"  id="purchase_rate" onkeyup="calc1();" class="form-control price_item1 text-right prc" placeholder="0.00" value="" min="0" tabindex="8">
+                                                <input type="number" name="prate"  id="purchase_rate" onkeyup="calc1();" class="form-control price_item1 text-right prc" placeholder="0.00" tabindex="8" readonly>
                                             </td>
                                             <td class="text-right">
                                                 <input class="form-control total_price text-right" name="pnamount" type="text" id="net_totalamount"  tabindex="9" readonly="readonly" placeholder="0.00">

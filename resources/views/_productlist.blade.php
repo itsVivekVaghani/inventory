@@ -49,7 +49,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <th>PRODUCT NAME <i class="fa fa-sort"></i></th>
                     <th>CATEGORY NAME <i class="fa fa-sort"></i></th>
                     <th>DESCRIPTION</th>
-                    <th>PRICE <i class="fa fa-sort"></i></th>
+                    <th>PURCHASE PRICE <i class="fa fa-sort"></i></th>
+                    <th>SALE PRICE <i class="fa fa-sort"></i></th>
                     <th>IMAGE</th>
                     <th>ACTION</th>
                     <!-- <--<th>Engine version</th>
@@ -63,7 +64,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <td>{{$item->productname}}</td>
                   <td>{{$item->categoryname}}</td>
                   <td>{{$item->productdesc}}</td>
-                  <td>{{$item->productprice}}</td>
+                  <td>{{$item->purchaseprice}}</td>
+                  <td>{{$item->saleprice}}</td>
                   <td><img src="./productimg/{{$item->productimg}}" style="width: 150px;"></td>
                   <td> 
                     <a href="edit_product/{{$item->productid}}" class="btn bg-warning btn-sm"><i class="fas fa-edit"></i></a>

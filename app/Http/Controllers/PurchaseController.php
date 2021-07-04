@@ -14,6 +14,7 @@ use App\Expense;
 class PurchaseController extends Controller
 {
     //
+
     function getsupplierproduct()
     {
         // $pur = new Purchase;
@@ -22,10 +23,12 @@ class PurchaseController extends Controller
         $product=DB::table('products')->pluck("productname","productid");
         //$stock=DB::table('stocks')::all();
         $stock = Stock::all();
+        $product1 = Product::all();
+        
         // $stock=DB::table('stocks')
         // ->select("inquantity'")
         // ->;
-        return view('_newpurchase',compact('supplier','product','stock'));
+        return view('_newpurchase',compact('supplier','product','stock','product1'));
         
         //return view('_newpurchase',compact('product'));
     }

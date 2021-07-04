@@ -17,9 +17,9 @@ class Stocks extends Migration
             $table->integer('stockid')->autoIncrement()->unique();
             $table->integer('productid');
             $table->foreign('productid')->references('productid')->on('products');
-            $table->integer('inquantity')->nullable();
-            $table->integer('outquantity')->nullable();
-            $table->integer('finalstock')->nullable();
+            $table->integer('inquantity')->default(0);
+            $table->integer('outquantity')->default(0);
+            $table->integer('finalstock')->default(0);
             $table->timestamps();
         });
     }

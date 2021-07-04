@@ -23,10 +23,11 @@ class SaleController extends Controller
         $product=DB::table('products')->pluck("productname","productid");
         //$stock=DB::table('stocks')::all();
         $stock = Stock::all();
+        $product1 = Product::all();
         // $stock=DB::table('stocks')
         // ->select("inquantity'")
         // ->;
-        return view('_newsale',compact('customer','product','stock'));
+        return view('_newsale',compact('customer','product','stock','product1'));
         
         //return view('_newpurchase',compact('product'));
     }
