@@ -74,6 +74,15 @@ Route::get('/delete_sale/{saleinvoiceno}','SaleController@deletesale');
 //stock
 Route::get('/stock_report','StockController@stocklist');
 
+//profit
+Route::get('/profit_report','ProfitController@profitlist');
+
+//INCOME
+Route::get('/income_report','IncomeController@incomelist');
+
+//EXPENSE
+Route::get('/expense_report','IncomeController@expenselist');
+
 
 //sale
 //Route::view('/new_sale','_newsale');

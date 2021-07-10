@@ -237,6 +237,30 @@
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="income_report" class="nav-link">
+                <i class="fas fa-chart-line"></i>
+                  <p>Payment Income Report</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="expense_report" class="nav-link">
+                <i class="fas fa-chart-line"></i>
+                  <p>Payment Expense Report</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="profit_report" class="nav-link">
+                <i class="fas fa-chart-line"></i>
+                  <p>Profit Report</p>
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
