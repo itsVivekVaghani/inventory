@@ -15,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 });
 
 Route::view('/dashboard','layouts.master');
+//Route::get('/dashboard','Users@countdata');
 
 Route::view('/register','login.register');
 Route::view('/login','login.login');
 
+Route::get('/logout','Users@logout');
+
 Route::post('/store',"Users@store");
 Route::post('/logs',"Users@logs");
+
+
 
 
 //product opertaion
@@ -63,6 +68,9 @@ Route::get('/new_purchase','PurchaseController@getsupplierproduct');
 Route::post('/add_purchase','PurchaseController@addpurchase');
 Route::get('/purchase_list','PurchaseController@purchaselist');
 Route::get('/delete_purchase/{purchaseinvoiceno}','PurchaseController@deletepurchase');
+Route::get('/edit_purchase/{purchaseinvoiceno}','PurchaseController@editpurchase');
+Route::post('/edit_purchase','PurchaseController@updatepurchase');
+
 
 
 //Sale
@@ -82,6 +90,9 @@ Route::get('/income_report','IncomeController@incomelist');
 
 //EXPENSE
 Route::get('/expense_report','IncomeController@expenselist');
+
+//TODAYREPORT
+Route::get('/today_report','ReportController@getalldata');
 
 
 //sale

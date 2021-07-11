@@ -34,7 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="text-center" style="color: green;">
               <h4>
                 <?php date_default_timezone_set("Asia/Kolkata");
-                echo "Stock Date : " . date("Y-m-d");?>
+                echo "Payment Income Report : " . date("Y-m-d");?>
               </h4>
               <h4>
                 <?php date_default_timezone_set("Asia/Kolkata");

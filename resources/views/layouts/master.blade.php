@@ -29,7 +29,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -42,7 +42,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>150</h3>
+                <h3>15</h3>
                 <p>Total Product</p>
               </div>
               <div class="icon">
@@ -58,25 +58,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Total Stock</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>Total Supplier</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person"></i>
               </div>
               <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -84,16 +69,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-warning">
               <div class="inner">
-                <h3>65</h3>
+                <h3>15</h3>
 
-                <p>Unique Visitors</p>
+                <p>Total Supplier</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-user-plus"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/supplier_list" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>12</h3>
+
+                <p>Total Customer</p>
+              </div>
+              <div class="icon">
+              <i class="ion ion-person"></i>
+              </div>
+              <a href="/customer_list" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

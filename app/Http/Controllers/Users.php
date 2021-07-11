@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\customer;
+use App\Product;
+use App\Supplier;
+use App\Newcustomer;
+use App\stock;
+use Session;
 
 
 class Users extends Controller
@@ -80,12 +85,26 @@ class Users extends Controller
 
         if(count($data))
         {
+            $request->session()->put('loginstatus',$b_email);
             return redirect('/dashboard');
         }
         else{
-            $abc = "enter the valid Username and Passwords";
+            $request->session()->flash('loginerr',"!!!Check Your Username & Password!!!");
+            return redirect('/login');
         }
     }
+
+    public function logout() {
+        Session::flush();
+        return Redirect('/login');
+    }
+
+    // public function countdata(request $request)
+    // {
+    //     $totalproduct=DB::table('category')->select('categoryid')->get()->count();
+    //     $request->session()->put('totalproduct',$totalproduct);
+    //     return view('layouts.master');
+    // }
 
 
 }

@@ -26,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     
     <div class="card">
               <div class="card-header">
-                <h3 class="card-title col-sm-3 col-form-label text">Supplier List</h3>
+                <h3 class="card-title col-sm-3 col-form-label text"><i class="fas fa-clipboard-list fa-2x"></i> Supplier List</h3>
                 <a href="new_supplier"><span class="btn btn-success row fileinput-button dz-clickable float-right">
                         <i class="fas fa-plus"></i>
                         <span>Add New Supplier</span>

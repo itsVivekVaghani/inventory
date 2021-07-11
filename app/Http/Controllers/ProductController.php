@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Category;
-use App\stock;
+use App\Stock;
 
 
 class ProductController extends Controller
@@ -67,11 +67,18 @@ class ProductController extends Controller
         //image delete
         //delete
         //stock::find($productid)->delete();
+        Stock::find($productid)->delete();
+
         $data=Product::find($productid);
         $img_path=$data->productimg;
+        
+        
         unlink("productimg/".$img_path);
+        
+        
 
         //direct method
+        
         Product::find($productid)->delete();
         $req->session()->flash('status','Product Deleted Sucessfully');
         return redirect('product_list');
@@ -89,7 +96,8 @@ class ProductController extends Controller
         $pro->productid;
         $pro->productname=$req->input('pname');
         $pro->productdesc=$req->input('pdesc');
-        $pro->productprice=$req->input('pprice');
+        $pro->purchaseprice=$req->input('pprice');
+        $pro->saleprice=$req->input('psprice');
         $pro->save();
         $req->session()->flash('status','Product Updated Sucessfully');
         return redirect('product_list');

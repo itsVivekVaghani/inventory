@@ -126,4 +126,75 @@ class PurchaseController extends Controller
         return redirect('purchase_list');
     }
 
+    function editpurchase($purchaseinvoiceno)
+    {
+         $data = Purchase::find($purchaseinvoiceno);
+         return view('_editpurchase',['data'=>$data]);
+    }
+
+    function updatepurchase(Request $req)
+    {
+        $pur = Purchase::find($req->input('purchaseinvoiceno'));
+        $pur->supplierid = $req->input('supplier');
+        $pur->purchasedate = $req->input('pdate');
+        $pur->purchaseqty = $req->input('pqty');
+        $pur->purchaseprice = $req->input('prate');
+        $pur->nettotalamount = $req->input('pnamount');
+        $pur->discount = $req->input('pdiscount');
+        $pur->totalamount = $req->input('ptotalamount');
+        $pur->save();
+        // Stock Add in Stock
+        $st = DB::table('stocks')
+        ->select('inquantity')
+        ->where('productid',$req->input('product'))
+        ->value('inquantity');
+        // //$cal = (int)$st;
+        $ft = $st + $req->input('pqty');
+        
+        $users = DB::table('stocks')
+        ->where('productid',$req->input('product'))
+        ->update([
+             'inquantity'=>  $ft
+        ]); 
+
+        $pt = DB::table('stocks')
+        ->select('outquantity')
+        ->where('productid',$req->input('product'))
+        ->value('outquantity');
+        
+
+        $users = DB::table('stocks')
+        ->where('productid',$req->input('product'))
+        ->update([
+             'finalstock'=>  $ft - $pt
+        ]);
+
+        // Amount Add in Expense Table
+        $ex = new Expense;
+        $ex->expenseid;
+        $ex->supplierid= $req->input('supplier');
+        $ex->receiveamount= $req->input('paid_amount');
+        $ex->dueamount= $req->input('due_amount');
+        $ex->totalamount= $req->input('ptotalamount');
+        $ex->expensedate= $req->input('pdate');
+        $ex->save();
+        // $st = DB::table('transactionexpense')
+        // ->select('inquantity')
+        // ->where('productid',$req->input('product'))
+        // ->value('inquantity');
+        // // //$cal = (int)$st;
+        // $ft = $st + $req->input('pqty');
+        
+        // $users = DB::table('stocks')
+        // ->where('productid',$req->input('product'))
+        // ->update([
+        //      'inquantity'=>  $ft
+        // ]);
+        
+        
+        $req->session()->flash('status','Purchase Updated Sucessfully');
+        return redirect('purchase_list');
+
+    }
+
 }

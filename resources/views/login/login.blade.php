@@ -11,7 +11,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <div class="form">
-      
+      <center><img src="dist/img/logo.png" width="300" ></center>
       <ul class="tab-group">
         <li class="tab"><a href="register">Sign Up</a></li>
         <li class="tab"><a href="login">Log In</a></li>
@@ -45,23 +45,24 @@
             
           </div>
 
-          <div class="field-wrap">
-            <a href="register"><p class="forgot"><a href="temp">Forgot Password?</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp
-           <a href="register">Register</a></p><br><br>
+          
             
           </div>
           
           
           
           <button type="submit" class="button button-block">Log In</button>
+          @if (Session::get('loginerr'))
           
+            <h3 STYLE="color: white; text-align: center;">{{Session::get('loginerr')}}<h3>
+         
+          @endif
         </form>
           
           
 
         </div>
+        
         
         <div id="login">   
           

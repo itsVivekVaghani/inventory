@@ -87,7 +87,7 @@ scratch. This aapage gets rid of all links and provides the needed markup only.
                   <label for="example-text-input" class="col-sm-4 col-form-label"></label>
                    <div class="col-sm-6">
                       <button type="submit" class="btn btn-info">SUBMIT</button>
-                      <button type="reset" class="btn btn-default float-right">Reset</button>
+                      <button type="reset" class="btn btn-default">Reset</button>
                    </div>
                 </div>
               </div>

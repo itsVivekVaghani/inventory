@@ -7,42 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
  @include('layouts.partials._head')
  <script>
-
-    
-    function qtyload()
-    {
-        var prid = document.getElementById('p_name').value;  
-        var locations = [
-        @foreach ($stock as $st)
-            [ {{ $st->productid }}, {{ $st->finalstock }} ],     
-        @endforeach
-        ];
-
-        for (i = 0; i < locations.length; i++) {
-            if(prid==locations[i][0])
-            {
-                document.getElementById('a_qty').value = locations[i][1];
-            }
-        }
-
-        var locations1 = [
-        @foreach ($product1 as $pr)
-            [ {{ $pr->productid }}, {{ $pr->purchaseprice}} ],     
-        @endforeach
-        ];
-
-        for (j = 0; j < locations1.length; j++) {
-            if(prid==locations1[j][0])
-            {
-                document.getElementById('purchase_rate').value = locations1[j][1];
-            }
-        }
-
-        
-        
-    }
-    
-    function calc1()
+function calc1()
     {
         var q = parseFloat(document.getElementById('purchase_qty').value);
         var r = parseFloat(document.getElementById('purchase_rate').value);
@@ -69,33 +34,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         var pa = parseFloat(document.getElementById('paidAmount').value);
         document.getElementById('dueAmmount').value = ((ntm-gtm)-pa);
     }
-
-    function createrow()
-    {
-        var table = document.getElementById("purchaseTable");
-        var row = table.insertRow(2);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell6 = row.insertCell(5);
-        var s = '<button class="btn btn-danger red" type="button" onclick="deleterow()" tabindex="8"><i class="fas fa-times"></i></button>'
-       
-        cell1.innerHTML = "";
-        cell2.innerHTML = "<input type='text' class='form-control text-right stock_ctn_1' placeholder='Stock/Qnt' readonly=''>";
-        cell3.innerHTML = "<input type='number' name='pqty' id='purchase_qty' class='form-control text-right prc' placeholder='0.00' >";
-        cell4.innerHTML = "<input type='number' name='prate'  id='purchase_rate' onkeyup='calc1();' class='form-control price_item1 text-right prc' placeholder='0.00' value='' min='0'>";
-        cell5.innerHTML = "<input class='form-control total_price text-right' name='pnamount' type='text' id='net_totalamount' readonly='readonly' placeholder='0.00'>";
-        cell6.innerHTML = s;
-        //row.appendChild(cell1);
-    }
-
-    function deleterow()
-    {
-        var table = document.getElementById("purchaseTable");
-        table.deleteRow(2);
-    }
+    
+    
 
  </script>
 </head>
@@ -128,18 +68,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card-body col-sm-12">
                 <div class="panel panel-bd lobidrag">
                     <div class="panel-body">
-                        <form method="post" action="add_purchase">
+                        <form method="post" action="/edit_purchase">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-6">
+
+                                <div class="form-group row">
+                                    
+                                    <div class="col-sm-10">
+                                    <input type="hidden" required autocomplete="off" class="form-control" name="pid" value="{{$data->purchaseinvoiceno}}">
+                                    </div>
+                                </div>
+
+
                                     <div class="form-group row">
                                         <label for="supplier_sss" class="col-sm-3 col-form-label">Supplier <i class="text-danger">*</i></label>
                                         <div class="col-sm-6">
                                         <select name="supplier" class="form-control" tabindex="1">
-                                            <option>--Select One--</option>
-                                            @foreach($supplier as $key => $value)
-                                            <option value="{{$key}}">{{$value}}</option>
-                                            @endforeach
+                                        <option><?php echo $data['supplierid'];?></option>
                                         </select>
                                         </div>
                                     </div>
@@ -172,20 +118,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <tr>
                                              <td>
                                              <select name="product" id="p_name" class="form-control" tabindex="5" onChange="qtyload();">
-                                                <option>--Select One--</option>
-                                                @foreach($product as $key => $value)
-                                                <option value="{{$key}}">{{$value}}</option>
-                                                @endforeach
+                                             <option><?php echo $data['productid'];?></option>
+                                               
                                             </select>
                                             </td>
                                             <td>
                                                  <input type="text" id="a_qty" value="" placeholder="Stock/Qnt" class="form-control text-right stock_ctn_1" readonly="readonly" tabindex="6">
                                             </td>
                                             <td class="text-right">
-                                                <input type="number" name="pqty" id="purchase_qty" onkeyup="calc1();" class="form-control text-right prc" placeholder="0.00" tabindex="7" required>
+                                                <input type="number" name="pqty" id="purchase_qty" onkeyup="calc1();" class="form-control text-right prc" placeholder="0.00" tabindex="7" value="{{$data->purchaseqty}}" required>
                                             </td>
                                             <td class="text-right">
-                                                <input type="number" name="prate"  id="purchase_rate" onkeyup="calc1();" class="form-control price_item1 text-right prc" placeholder="0.00" tabindex="8" readonly>
+                                                <input type="number" name="prate"  id="purchase_rate" onkeyup="calc1();" class="form-control price_item1 text-right prc" placeholder="0.00" tabindex="8"  value="{{$data->purchaseprice}}" readonly>
                                             </td>
                                             <td class="text-right">
                                                 <input class="form-control total_price text-right" name="pnamount" type="text" id="net_totalamount"  tabindex="9" readonly="readonly" placeholder="0.00">
@@ -209,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <tr>
                                             <td class="text-right" colspan="4"><b>Discount:</b></td>
                                             <td class="text-right">
-                                                 <input type="number" name="pdiscount" id="purchase_dis" onkeyup="calc1();" class="form-control text-right prc" placeholder="0.00" tabindex="10" required></td>
+                                                 <input type="number" name="pdiscount" id="purchase_dis" onkeyup="calc1();" class="form-control text-right prc" placeholder="0.00" tabindex="10"  value="{{$data->discount}}"  required></td>
                                             </td>
                                             
                                         </tr>
@@ -225,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <tr>
                                             <td class="text-right" colspan="4"><b>Paid Amount:</b></td>
                                             <td class="text-right">
-                                            <input type="text" id="paidAmount" class="text-right form-control"  name="paid_amount" value="0" tabindex="13" onkeyup="calc1();">
+                                            <input type="text" id="paidAmount" class="text-right form-control"  name="paid_amount" value="0" tabindex="13"  onkeyup="calc1();">
                                             </td>
                                             
                                         </tr>

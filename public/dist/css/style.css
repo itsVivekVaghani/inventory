@@ -7,8 +7,14 @@ html {
 }
 
 body {
-  background: #c1bdba;
+  
   font-family: 'Titillium Web', sans-serif;
+ background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            /*background-image: url(../img/register-bg.jpg);*/
+            background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dlogin%2Bbackground&psig=AOvVaw22gtsF5sjld27_sItXyj5R&ust=1626079122968000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCKiBkfjO2vECFQAAAAAdAAAAABAD);
+            /*background-image: linear-gradient(90deg, #0d2b14, #40844e);*/
 }
 
 a {
@@ -23,7 +29,7 @@ a:hover {
 .form {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
-  max-width: 600px;
+  max-width: 400px;
   margin: 40px auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -148,7 +154,7 @@ textarea {
   border-radius: 0;
   padding: 15px 0;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: .1em;
   background: #1ab188;
@@ -165,6 +171,12 @@ textarea {
 .button-block {
   display: block;
   width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center
 }
 
 .forgot {

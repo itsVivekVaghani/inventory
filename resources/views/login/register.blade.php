@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Sign-Up/Login Form</title>
+  <title>Sign-Up Form</title>
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset ('dist/css/style.css')}}">
@@ -11,7 +11,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <div class="form">
-      
+<center><img src="dist/img/logo.png" width="300" ></center>
       <ul class="tab-group">
         <li class="tab"><a href="register">Sign Up</a></li>
         <li class="tab"><a href="login">Log In</a></li>
@@ -130,7 +130,7 @@
             @enderror
           </div>
           
-          <button type="submit" class="button button-block"/>Get Started</button>
+          <button type="submit" class="button button-block"/>Sign-UP</button>
           
           </form>
 

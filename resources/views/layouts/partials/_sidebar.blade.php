@@ -8,12 +8,21 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
+      <div class="image">
+      <span class="logo-lg">
+
+      <img src="dist/img/logo.png" width="200" >
+      </span>
+      </div>
+
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <!-- <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div> -->
+        <div class="image">
+          <img src="dist/img/user-icon-jpg-29.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+        @if(Session::get('loginstatus'))
+        <p style="color: white"><b>{{Session::get('loginstatus')}}</b></p>
+        @endif
         </div>
       </div>
 
@@ -233,14 +242,26 @@
               <li class="nav-item">
                 <a href="stock_report" class="nav-link">
                 <i class="fas fa-chart-line"></i>
-                  <p>Stock Report</p>
+                  <p>Stock Details</p>
                 </a>
               </li>
             </ul>
+            
+          </li>
+
+          <!--Report-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fas fa-book-open"></i>
+              <p>
+                Report
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="income_report" class="nav-link">
-                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-file-medical-alt"></i>
                   <p>Payment Income Report</p>
                 </a>
               </li>
@@ -248,7 +269,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="expense_report" class="nav-link">
-                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-file-signature"></i>
                   <p>Payment Expense Report</p>
                 </a>
               </li>
@@ -256,11 +277,20 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="profit_report" class="nav-link">
-                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-file-contract"></i>
                   <p>Profit Report</p>
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="today_report" class="nav-link">
+                <i class="fas fa-copy"></i>
+                  <p>Today's Report</p>
+                </a>
+              </li>
+            </ul>
+            
           </li>
         </ul>
       </nav>

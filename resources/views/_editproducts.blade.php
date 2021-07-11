@@ -66,11 +66,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                 </div>
 
-                  <div class="form-group row">
-                    <label for="inputproduct" class="col-sm col-form-label">Product Price</label>
-                    <div class="col-sm-10">
-                      <input type="text"required autocomplete="off" class="form-control" name="pprice" placeholder="Product Price" value="{{$data->productprice}}">
-                    </div>
+                <div class="form-group row">
+                    <table>
+                    <tr>
+                      <td>
+                      <label for="inputproduct" class="col-sm col-form-label">Purchase Price</label>
+                      </td>
+                   <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                      <td>
+                        <input type="text"required autocomplete="off" class="form-control" name="pprice" value="{{$data->purchaseprice}}">
+                      </td>
+
+                      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                      <td>
+                      <label for="inputproduct" class="col-sm col-form-label">Sales Price</label>
+                      </td>
+                      <td>  
+                        <input type="text"required autocomplete="off" class="form-control" name="psprice" value="{{$data->saleprice}}">
+                      </td>
+                       
+
+                    </tr>
+                    </table>
                   </div>
                 
                   <div class="form-group row">
