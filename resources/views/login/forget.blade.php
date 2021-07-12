@@ -11,8 +11,8 @@
 <body>
 <!-- partial:index.partial.html -->
 <div class="form">
-      <center><img src="dist/img/logo.png" width="300" ></center>
-      <ul class="tab-group">
+      
+<ul class="tab-group">
         <li class="tab"><a href="register">Sign Up</a></li>
         <li class="tab"><a href="login">Log In</a></li>
       </ul>
@@ -21,14 +21,13 @@
         <div id="login">  
         @if(Session::get('status'))
               <div class="alert alert-sucess alert-dismissible fade show" role="alert">
-                <h1>Your Are Register Successfull</h1>
+                <h1>Your Pasword Updated Successfull</h1>
                 </button>
                 </div>
               @endif 
-              
-        <h1>Welcome Back!</h1>
- 
-          <form action="logs" method="POST">
+        <h1>Forget Password</h1>
+          
+          <form action="login" method="POST">
           @csrf
           
             <div class="field-wrap">
@@ -36,24 +35,17 @@
               Email Address<span class="req">*</span>
             </label>-->
             <input type="email"required autocomplete="off" name="email" placeholder="EMAIL"/>
+           
           </div>
+
           
           <div class="field-wrap">
             <!--<label>
               Password<span class="req">*</span>
             </label>-->
-            <input type="password"required autocomplete="off" name="password" placeholder="PASSWORD"/>
+            <input type="text" required autocomplete="off" name="password" placeholder="NEW PASSWORD"/>
 
-
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <a href="forget" style="font-size:20px;text-align:center;">Forgot Password</a>
-            <br/>
-            <br/>
-          
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           <a href="register" style="font-size:20px;text-align:center;">Create An Account</a>
-
+            
             
           </div>
 
@@ -61,24 +53,18 @@
           
           
           
-          <button type="submit" class="button button-block">Log In</button>
-          @if (Session::get('loginerr'))
+          <button type="submit" class="button button-block">RESET PASSWORD</button>
           
-            <h3 STYLE="color: white; text-align: center;">{{Session::get('loginerr')}}<h3>
-         
-          @endif
         </form>
           
           
 
         </div>
         
-        
         <div id="login">   
           
 
         </div>
-        
       </div><!-- tab-content -->
       
 </div> <!-- /form -->
