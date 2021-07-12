@@ -25,9 +25,8 @@
                 </button>
                 </div>
               @endif 
-              
         <h1>Welcome Back!</h1>
- 
+          
           <form action="logs" method="POST">
           @csrf
           
@@ -43,21 +42,12 @@
               Password<span class="req">*</span>
             </label>-->
             <input type="password"required autocomplete="off" name="password" placeholder="PASSWORD"/>
-
-
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <a href="forget" style="font-size:20px;text-align:center;">Forgot Password</a>
-            <br/>
-            <br/>
-          
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           <a href="register" style="font-size:20px;text-align:center;">Create An Account</a>
-
             
           </div>
 
-         
+          
+            
+          </div>
           
           
           
